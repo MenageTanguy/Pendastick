@@ -30,4 +30,4 @@ We're coding a "Pendu" that's rocking as hell !
  
  >**Tanguy Ménage**
  
- >**Tristan Neveux du Geniébre**
+ >**Tristan Neveux du Geniebre**
