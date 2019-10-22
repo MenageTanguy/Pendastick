@@ -19,6 +19,7 @@ We're coding a "Pendu" that's rocking as hell !
  
  
  ## Coding Standards
+    > Test First
     > Following Java Standards
         >> 4 spaces indent
         >> English code + Comments
