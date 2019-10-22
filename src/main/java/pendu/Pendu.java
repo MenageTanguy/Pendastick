@@ -13,9 +13,9 @@ import java.awt.event.KeyEvent;
 public class Pendu {
 
     /**
-     * Pendu INSTANCE singleton
+     * Pendu instance singleton
      */
-    public static Pendu INSTANCE = new Pendu();
+    public static Pendu instance = new Pendu();
 
     private static final String CHARACTER_EMPTY_LETTER = "=";
 
@@ -37,7 +37,7 @@ public class Pendu {
      * @param difficulty difficulty choosen by user
      */
     public void startGame(int difficulty) {
-        wordTofine = WordManager.INSTANCE.getRandomWordForDifficulty(difficulty).toUpperCase();
+        wordTofine = WordManager.instance.getRandomWordForDifficulty(difficulty).toUpperCase();
         isWordFine = false;
         nbFail = 0;
         nbTry = 0;
@@ -61,7 +61,7 @@ public class Pendu {
     private void newUserLetter() {
         nbTry++;
         displayInfo();
-        checkLetter(KeyboardManager.INSTANCE.readCharacter("Try a letter please : ").toUpperCase());
+        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : ").toUpperCase());
     }
 
     /**
@@ -89,7 +89,7 @@ public class Pendu {
     private void displayInfo() {
         System.out.println("\nWord to fine : " + currentWordState);
         System.out.println("Try number : " + nbTry + ", fails : " + nbFail);
-        System.out.println(DrawManager.INSTANCE.getDrawForThisLooseNumber(nbFail));
+        System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail));
     }
 
     /**

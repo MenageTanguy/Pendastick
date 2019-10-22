@@ -11,9 +11,9 @@ public class WordManager {
     private ArrayList<String> wordArrayLevel01, wordArrayLevel02;
 
     /**
-     * INSTANCE de gestion des mots
+     * instance de gestion des mots
      */
-    public static WordManager INSTANCE = new WordManager();
+    public static WordManager instance = new WordManager();
 
     private WordManager() {
         wordArrayLevel01 = new ArrayList<>();
