@@ -15,7 +15,7 @@ public class KeyboardManager {
 
     private static final String ERROR_MESSAGE = "Invalid input, please try again";
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     private KeyboardManager() {
         scanner = new Scanner(System.in);
@@ -31,8 +31,9 @@ public class KeyboardManager {
         int value;
         boolean error = false;
         while (true) {
-            if (error)
+            if (error) {
                 System.out.println(ERROR_MESSAGE);
+            }
             System.out.println(message);
             value = scanner.nextInt();
             if ((Integer) value instanceof Integer) {
@@ -52,8 +53,9 @@ public class KeyboardManager {
         String value;
         boolean error = false;
         while (true) {
-            if (error)
+            if (error) {
                 System.out.println(ERROR_MESSAGE);
+            }
             System.out.println(message);
             value = scanner.next();
             if (value instanceof String) {
@@ -73,18 +75,19 @@ public class KeyboardManager {
         return readString(message).substring(0,1);
     }
 
-    public boolean isSame(String a, String b) {
+    public boolean isSame(String first, String second) {
         Collator insenstiveStringComparator = Collator.getInstance();
         insenstiveStringComparator.setStrength(Collator.PRIMARY);
-        return insenstiveStringComparator.compare(a.toLowerCase(), b.toLowerCase()) == 0;
+        return insenstiveStringComparator.compare(first.toLowerCase(), second.toLowerCase()) == 0;
     }
 
     public int readNumber(String message, int min, int max) {
         int value;
         boolean error = false;
         while (true) {
-            if (error)
+            if (error) {
                 System.out.println(ERROR_MESSAGE);
+            }
             System.out.println(message);
             value = scanner.nextInt();
             if (value >= min && value <= max) {
