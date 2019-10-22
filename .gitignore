@@ -1,5 +1,5 @@
 #IDE folder
-/.idea/
+/.idea/*
 
 # Compiled class file
 *.class
@@ -19,3 +19,5 @@ hs_err_pid*
 /.gradle/**
 
 *.iml
+
+/build/*
