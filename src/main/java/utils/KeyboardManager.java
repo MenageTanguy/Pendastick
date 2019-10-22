@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class KeyboardManager {
 
     /**
-     * INSTANCE for keyboard management
+     * instance for keyboard management
      */
-    public static KeyboardManager INSTANCE = new KeyboardManager();
+    public static KeyboardManager instance = new KeyboardManager();
 
     private static final String ERROR_MESSAGE = "Invalid input, please try again";
 

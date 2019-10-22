@@ -5,7 +5,7 @@ package utils;
  */
 public class DrawManager {
 
-    public static DrawManager INSTANCE = new DrawManager();
+    public static DrawManager instance = new DrawManager();
 
 
     private static final String PENDU_STATE_0 = "\n\n\n\n\n\n\n\n\n\n";
@@ -110,29 +110,42 @@ public class DrawManager {
      * @return current state of draw
      */
     public String getDrawForThisLooseNumber(int nbLoose) {
+        String result;
         switch (nbLoose) {
             case 1:
-                return PENDU_STATE_1;
+                result = PENDU_STATE_1;
+                break;
             case 2:
-                return PENDU_STATE_2;
+                result = PENDU_STATE_2;
+                break;
             case 3:
-                return PENDU_STATE_3;
+                result = PENDU_STATE_3;
+                break;
             case 4:
-                return PENDU_STATE_4;
+                result = PENDU_STATE_4;
+                break;
             case 5:
-                return PENDU_STATE_5;
+                result = PENDU_STATE_5;
+                break;
             case 6:
-                return PENDU_STATE_6;
+                result = PENDU_STATE_6;
+                break;
             case 7:
-                return PENDU_STATE_7;
+                result = PENDU_STATE_7;
+                break;
             case 8:
-                return PENDU_STATE_8;
+                result = PENDU_STATE_8;
+                break;
             case 9:
-                return PENDU_STATE_9;
+                result = PENDU_STATE_9;
+                break;
             case 10:
-                return PENDU_STATE_10;
+                result = PENDU_STATE_10;
+                break;
             default:
-                return PENDU_STATE_0;
+                result = PENDU_STATE_0;
+                break;
         }
+        return result;
     }
 }

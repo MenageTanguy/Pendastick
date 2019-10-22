@@ -20,7 +20,7 @@ public class Main {
                 askToPlay();
             }
             if (gameRunning) {
-                Pendu.INSTANCE.startGame(askDifficulty());
+                Pendu.instance.startGame(askDifficulty());
                 gameRunning = false;
             }
         }
@@ -34,11 +34,11 @@ public class Main {
         boolean saisiInvalid = true;
         String s;
         while (saisiInvalid) {
-            s = KeyboardManager.INSTANCE.readCharacter("Do you want to start a new game ? (Y/N)");
-            if (KeyboardManager.INSTANCE.isSame(s, "Y")) {
+            s = KeyboardManager.instance.readCharacter("Do you want to start a new game ? (Y/N)");
+            if (KeyboardManager.instance.isSame(s, "Y")) {
                 saisiInvalid = false;
                 gameRunning = true;
-            } else if (KeyboardManager.INSTANCE.isSame(s, "N")) {
+            } else if (KeyboardManager.instance.isSame(s, "N")) {
                 continueGame = false;
                 gameRunning = false;
                 saisiInvalid = false;
@@ -51,6 +51,6 @@ public class Main {
      * Ask game difficulty
      */
     private static int askDifficulty() {
-        return KeyboardManager.INSTANCE.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)", 1, 2);
+        return KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)", 1, 2);
     }
 }
