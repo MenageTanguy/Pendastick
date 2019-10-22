@@ -1,8 +1,8 @@
-#Pendastick
+# Pendastick
 
 On fait un pendu qui déchire sa race !
 
-##Goal
+## Goal
 
 
-##Tools
+## Tools
