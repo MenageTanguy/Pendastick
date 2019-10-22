@@ -20,6 +20,6 @@ hs_err_pid*
 
 *.iml
 
-/build/*
+build/*
 /out/*
 /bin/
