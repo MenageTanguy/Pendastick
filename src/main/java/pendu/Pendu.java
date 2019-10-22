@@ -5,4 +5,17 @@ package pendu;
  * This is how work the game
  */
 public class Pendu {
+
+    /**
+     * Pendu INSTANCE singleton
+     */
+    public static Pendu INSTANCE = new Pendu();
+
+    private Pendu() {
+    }
+
+
+
+
+
 }
