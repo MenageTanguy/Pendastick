@@ -41,6 +41,11 @@ public class WordManager {
         wordArrayLevel02.add("ARGENT");
     }
 
+    /**
+     * Get a random word corresponding to the selected difficulty
+     * @param difficulty
+     * @return
+     */
     public String getRandomWordForDifficulty(int difficulty) {
         Random rand = new Random();
         switch (difficulty) {
