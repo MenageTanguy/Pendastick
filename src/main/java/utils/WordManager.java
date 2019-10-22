@@ -59,4 +59,13 @@ public class WordManager {
 
     private void generateWordArray() {
     }
+
+    public ArrayList<String> getWordArrayLevel01() {
+        return wordArrayLevel01;
+    }
+
+    public ArrayList<String> getWordArrayLevel02() {
+        return wordArrayLevel02;
+    }
 }
+
