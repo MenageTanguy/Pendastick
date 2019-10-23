@@ -1,4 +1,4 @@
-package utils.WordManager;
+package utils.wordmanager;
 
 /**
  * Word manager factory
@@ -8,7 +8,8 @@ public class WordManagerFactory {
     /**
      * factory instance
      */
-    private static WordManagerFactory instance;
+    private static WordManagerFactory instance = new WordManagerFactory();
+    ;
 
     /**
      * Singleton
@@ -16,9 +17,6 @@ public class WordManagerFactory {
      * @return word manager factory
      */
     public static WordManagerFactory getInstance() {
-        if (instance == null) {
-            instance = new WordManagerFactory();
-        }
         return instance;
     }
 

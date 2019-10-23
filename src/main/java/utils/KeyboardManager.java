@@ -42,12 +42,13 @@ public class KeyboardManager {
      * @return true if valid path
      */
     private static boolean isValidPath(String path) {
+        boolean valid = true;
         try {
             Paths.get(path);
         } catch (InvalidPathException | NullPointerException ex) {
-            return false;
+            valid = false;
         }
-        return true;
+        return valid;
     }
 
     /**
@@ -82,13 +83,12 @@ public class KeyboardManager {
         String input = readString(message);
         if (input.length() > CHARACTER_SIZE) {
             System.out.println("Only one character expected, please try again");
-            return readCharacter(message);
         } else if (isValidLetter(input)) {
             return input;
         } else {
             System.out.println("This input is not letter, try again please");
-            return readCharacter(message);
         }
+        return readCharacter(message);
     }
 
     /**
@@ -143,13 +143,20 @@ public class KeyboardManager {
      * @return true if good
      */
     private boolean isInteger(String input) {
-        if (input.isEmpty()) return false;
+        if (input.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < input.length(); i++) {
             if (i == 0 && input.charAt(i) == '-') {
-                if (input.length() == CHARACTER_SIZE) return false;
-                else continue;
+                if (input.length() == CHARACTER_SIZE) {
+                    return false;
+                } else {
+                    continue;
+                }
             }
-            if (Character.digit(input.charAt(i), 10) < 0) return false;
+            if (Character.digit(input.charAt(i), 10) < 0) {
+                return false;
+            }
         }
         return true;
 //        boolean result = false;

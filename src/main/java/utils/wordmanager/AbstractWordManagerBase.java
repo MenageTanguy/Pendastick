@@ -1,20 +1,20 @@
-package utils.WordManager;
+package utils.wordmanager;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
-public abstract class WordManagerBase implements WordManager {
+public abstract class AbstractWordManagerBase implements WordManager {
 
     /**
      * Word array for difficulty one
      */
-    ArrayList<String> wordArrayLevel01;
+    protected ArrayList<String> wordArrayLevel01;
 
     /**
      * Word array for difficulty two
      */
-    ArrayList<String> wordArrayLevel02;
+    protected ArrayList<String> wordArrayLevel02;
 
     public String getRandomWordForDifficulty(int difficulty) {
         Random rand = new Random();

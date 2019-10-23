@@ -1,4 +1,4 @@
-package utils.WordManager;
+package utils.wordmanager;
 
 import java.util.ArrayList;
 

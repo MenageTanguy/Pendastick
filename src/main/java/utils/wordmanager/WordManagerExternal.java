@@ -1,4 +1,4 @@
-package utils.WordManager;
+package utils.wordmanager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-class WordManagerExternal extends WordManagerBase {
+class WordManagerExternal extends AbstractWordManagerBase {
 
     /**
      * Instance of WordManager for external files
@@ -17,13 +17,14 @@ class WordManagerExternal extends WordManagerBase {
      * @param pathForExternal pathForParam
      */
     WordManagerExternal(String pathForExternal) {
+        super();
         wordArrayLevel01 = new ArrayList<>();
         wordArrayLevel02 = new ArrayList<>();
         List<String> inputList;
 
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(pathForExternal))) {
+        try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(pathForExternal))) {
             //br returns as stream and convert it into a List
-            inputList = br.lines().collect(Collectors.toList());
+            inputList = bufferedReader.lines().collect(Collectors.toList());
             addWordIntoGoodList((ArrayList<String>) inputList);
         } catch (IOException e) {
             e.printStackTrace();

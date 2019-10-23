@@ -2,7 +2,7 @@ package pendu;
 
 import utils.DrawManager;
 import utils.KeyboardManager;
-import utils.WordManager.WordManager;
+import utils.wordmanager.WordManager;
 
 /**
  * Main classe of the project

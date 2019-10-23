@@ -1,8 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 import utils.DrawManager;
-import utils.WordManager.WordManager;
-import utils.WordManager.WordManagerFactory;
+import utils.wordmanager.WordManager;
+import utils.wordmanager.WordManagerFactory;
 
 /**
  * Class test for pendu

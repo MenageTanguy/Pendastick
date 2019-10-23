@@ -1,7 +1,7 @@
 import pendu.Pendu;
 import utils.KeyboardManager;
-import utils.WordManager.WordManager;
-import utils.WordManager.WordManagerFactory;
+import utils.wordmanager.WordManager;
+import utils.wordmanager.WordManagerFactory;
 
 /**
  * Main class of the game, run the program and game logic

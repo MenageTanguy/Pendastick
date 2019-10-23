@@ -1,13 +1,14 @@
-package utils.WordManager;
+package utils.wordmanager;
 
 import java.util.ArrayList;
 
-class WordManagerInternal extends WordManagerBase {
+class WordManagerInternal extends AbstractWordManagerBase {
 
     /**
      * Create lists of internals words
      */
     WordManagerInternal() {
+        super();
         wordArrayLevel01 = new ArrayList<>();
         wordArrayLevel02 = new ArrayList<>();
         // Difficulty 01
