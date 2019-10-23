@@ -1,6 +1,9 @@
 package utils;
 
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 import java.text.Collator;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -9,15 +12,17 @@ import java.util.Scanner;
 public class KeyboardManager {
 
     /**
-     * instance for keyboard management
-     */
-    public static KeyboardManager instance = new KeyboardManager();
-
-    /**
      * STATIC error message display if invalid input
      */
     private static final String ERROR_MESSAGE = "Invalid input, please try again";
-
+    /**
+     * Static character size
+     */
+    private static final int CHARACTER_SIZE = 1;
+    /**
+     * instance for keyboard management
+     */
+    public static KeyboardManager instance = new KeyboardManager();
     /**
      * Scanner used to read console input
      */
@@ -30,6 +35,21 @@ public class KeyboardManager {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Method to check if string is a valid path
+     *
+     * @param path string to check
+     * @return true if valid path
+     */
+    private static boolean isValidPath(String path) {
+        boolean valid = true;
+        try {
+            Paths.get(path);
+        } catch (InvalidPathException | NullPointerException ex) {
+            valid = false;
+        }
+        return valid;
+    }
 
     /**
      * Read and check String
@@ -39,17 +59,13 @@ public class KeyboardManager {
      */
     private String readString(String message) {
         String value;
-        boolean error = false;
         while (true) {
-            if (error) {
-                System.out.println(ERROR_MESSAGE);
-            }
             System.out.println(message);
             value = scanner.nextLine().trim();
             if (!value.isEmpty()) {
                 return value;
             }
-            error = true;
+            System.out.println(ERROR_MESSAGE);
         }
     }
 
@@ -61,15 +77,14 @@ public class KeyboardManager {
      */
     public String readCharacter(String message) {
         String input = readString(message);
-        if (input.length() > 1) {
+        if (input.length() > CHARACTER_SIZE) {
             System.out.println("Only one character expected, please try again");
-            return readCharacter(message);
         } else if (isValidLetter(input)) {
             return input;
         } else {
             System.out.println("This input is not letter, try again please");
-            return readCharacter(message);
         }
+        return readCharacter(message);
     }
 
     /**
@@ -92,7 +107,7 @@ public class KeyboardManager {
     public boolean isSame(String word1, String word2) {
         Collator insenstiveStringComparator = Collator.getInstance();
         insenstiveStringComparator.setStrength(Collator.PRIMARY);
-        return insenstiveStringComparator.compare(word1.toLowerCase(), word2.toLowerCase()) == 0;
+        return insenstiveStringComparator.compare(word1.toLowerCase(Locale.getDefault()), word2.toLowerCase(Locale.getDefault())) == 0;
     }
 
     /**
@@ -108,7 +123,7 @@ public class KeyboardManager {
         System.out.println(message);
         String input = scanner.nextLine().trim();
         if (isInteger(input)) {
-            value = Integer.valueOf(input);
+            value = Integer.parseInt(input);
             if (value >= min && value <= max) {
                 return value;
             }
@@ -117,7 +132,6 @@ public class KeyboardManager {
         return readNumber(message, min, max);
     }
 
-
     /**
      * Method to check if a string is an integer
      *
@@ -125,15 +139,38 @@ public class KeyboardManager {
      * @return true if good
      */
     private boolean isInteger(String input) {
-        if (input.isEmpty()) return false;
+        if (input.isEmpty()) {
+            return false;
+        }
         for (int i = 0; i < input.length(); i++) {
             if (i == 0 && input.charAt(i) == '-') {
-                if (input.length() == 1) return false;
-                else continue;
+                if (input.length() == CHARACTER_SIZE) {
+                    return false;
+                } else {
+                    continue;
+                }
             }
-            if (Character.digit(input.charAt(i), 10) < 0) return false;
+            if (Character.digit(input.charAt(i), 10) < 0) {
+                return false;
+            }
         }
         return true;
     }
 
+    /**
+     * Method to ask user a path and check it
+     *
+     * @param message message to display
+     * @return valid path
+     */
+    public String readPath(String message) {
+        String input = readString(message);
+        if (!isValidPath(input)) {
+            System.out.println("This path doesn't exist, please try another one.");
+            return readPath(message);
+        }
+        return input;
+    }
 }
+
+

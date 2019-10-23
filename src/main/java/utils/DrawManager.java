@@ -5,9 +5,6 @@ package utils;
  */
 public class DrawManager {
 
-    public static DrawManager instance = new DrawManager();
-
-
     public static final String PENDU_STATE_0 = "\n\n\n\n\n\n\n\n\n\n";
     public static final String PENDU_STATE_1 = "\n" +
             "\n" +
@@ -99,6 +96,7 @@ public class DrawManager {
             "    |\n" +
             "    |\n" +
             "  __|________";
+    public static DrawManager instance = new DrawManager();
 
     private DrawManager() {
     }

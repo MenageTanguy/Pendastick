@@ -1,5 +1,10 @@
+package main;
+
 import pendu.Pendu;
 import utils.KeyboardManager;
+import utils.enums.EnumDifficulty;
+import utils.wordmanager.WordManager;
+import utils.wordmanager.WordManagerFactory;
 
 /**
  * Main class of the game, run the program and game logic
@@ -26,7 +31,7 @@ public class MainGame {
     }
 
     /**
-     * MainGame logic of how run the program
+     * main.MainGame logic of how run the program
      */
     private static void startPlaying() {
         while (gameRunning || continueGame) {
@@ -35,7 +40,8 @@ public class MainGame {
                 askToPlay();
             }
             if (gameRunning) {
-                Pendu.instance.startGame(askDifficulty());
+                WordManager wordManager = askWordDictionnary();
+                Pendu.instance.startGame(askDifficulty(), wordManager);
                 gameRunning = false;
             }
         }
@@ -67,6 +73,32 @@ public class MainGame {
      */
     private static int askDifficulty() {
         return KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n " +
-                "2 - Normal (5 or more characters)", 1, 2);
+                "2 - Normal (5 or more characters)", EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue());
     }
+
+
+    /**
+     * Method to ask word management to user
+     */
+    private static WordManager askWordDictionnary() {
+        int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - " +
+                "Internal (Program dictionnary)\n 2 - Custom (Use your own file)", 1, 2);
+        return WordManagerFactory.getInstance().getWordManager(dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue(), askForPath(dictionnaryChoice));
+
+    }
+
+    /**
+     * Ask path to user
+     *
+     * @param dictionnaryChoice if 1 = internal mode and return ""
+     * @return valid path
+     */
+    private static String askForPath(int dictionnaryChoice) {
+        String inputPath = "";
+        if (dictionnaryChoice != EnumDifficulty.EASY.getDifficultyValue()) {
+            inputPath = KeyboardManager.instance.readPath("Please enter a valid path for your custom dictionnary");
+        }
+        return inputPath;
+    }
+
 }

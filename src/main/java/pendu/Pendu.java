@@ -2,7 +2,7 @@ package pendu;
 
 import utils.DrawManager;
 import utils.KeyboardManager;
-import utils.WordManager;
+import utils.wordmanager.WordManager;
 
 /**
  * Main classe of the project
@@ -11,15 +11,13 @@ import utils.WordManager;
 public class Pendu {
 
     /**
-     * Pendu instance singleton
-     */
-    public static Pendu instance = new Pendu();
-
-    /**
      * Character used for empty letter space
      */
     private static final String CHARACTER_EMPTY_LETTER = "=";
-
+    /**
+     * Pendu instance singleton
+     */
+    public static Pendu instance = new Pendu();
     /**
      * Word to find
      */
@@ -55,10 +53,11 @@ public class Pendu {
      * Main game method
      * init variables and manage each stage
      *
-     * @param difficulty difficulty choosen by user
+     * @param difficulty  difficulty choosen by user
+     * @param wordManager how words are manage
      */
-    public void startGame(int difficulty) {
-        wordTofind = WordManager.instance.getRandomWordForDifficulty(difficulty).toUpperCase();
+    public void startGame(int difficulty, WordManager wordManager) {
+        wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
         isWordFind = false;
         nbFail = 0;
         nbTry = 0;
@@ -82,7 +81,7 @@ public class Pendu {
     private void newUserLetter() {
         nbTry++;
         displayInfo();
-        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : ").toUpperCase());
+        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : "));
     }
 
     /**
