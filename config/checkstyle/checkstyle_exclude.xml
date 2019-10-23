@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+  checkstyle_exclude.xml,
+
+  Copyright © 2018 Mickael Gaillard / TACTfactory
+  Description :
+  Author(s)   : Mickael Gaillard <mickael.gaillard@tactfactory.com>
+  License     : all right reserved
+  Last update : Jan 01, 2018
+-->
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<suppressions>
+    <suppress checks="VisibilityModifier" files="(Fragment|Activity|ListAdapter)\.java"/>
+    <suppress files="[\\/]com.artifex.mupdf[\\/]" checks="[a-zA-Z0-9]*"/>
+    <suppress files="[\\/]base[\\/]" checks="[a-zA-Z0-9]*"/>
+</suppressions>
