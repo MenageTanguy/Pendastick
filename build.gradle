@@ -9,16 +9,18 @@ plugins {
 
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
     implementation 'com.google.guava:guava:28.1-jre'
-
+    compileOnly 'org.projectlombok:lombok:1.18.10'
+    annotationProcessor 'org.projectlombok:lombok:1.18.10'
     testImplementation 'junit:junit:4.12'
 }
 
 pmd {
-    toolVersion = '6.18.0'
+    toolVersion = '6.17.0'
     ignoreFailures = true
     pmdTest.enabled = false
     ruleSetFiles = files("config/pmd/ruleset.xml")
@@ -45,9 +47,11 @@ checkstyle {
 checkstyleMain {
     source = 'src/main/java'
 }
+
 checkstyleTest {
     source = 'src/test/java'
 }
+
 tasks.withType(Checkstyle) {
     reports {
         xml.enabled false
