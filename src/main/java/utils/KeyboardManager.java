@@ -1,5 +1,7 @@
 package utils;
 
+import java.nio.file.InvalidPathException;
+import java.nio.file.Paths;
 import java.text.Collator;
 import java.util.Scanner;
 
@@ -136,4 +138,35 @@ public class KeyboardManager {
         return true;
     }
 
+    /**
+     * Method to ask user a path and check it
+     *
+     * @param message message to display
+     * @return valid path
+     */
+    public String readPath(String message) {
+        String input = readString(message);
+        if (!isValidPath(input)) {
+            System.out.println("This path doesn't exist, please try another one.");
+            return readPath(message);
+        }
+        return input;
+    }
+
+    /**
+     * Method to check if string is a valid path
+     *
+     * @param path string to check
+     * @return true if valid path
+     */
+    private static boolean isValidPath(String path) {
+        try {
+            Paths.get(path);
+        } catch (InvalidPathException | NullPointerException ex) {
+            return false;
+        }
+        return true;
+    }
 }
+
+

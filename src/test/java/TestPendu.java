@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 import utils.DrawManager;
-import utils.WordManager;
+import utils.WordManager.WordManager;
 
 /**
  * Class test for pendu

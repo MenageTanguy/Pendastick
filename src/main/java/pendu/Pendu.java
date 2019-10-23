@@ -2,7 +2,7 @@ package pendu;
 
 import utils.DrawManager;
 import utils.KeyboardManager;
-import utils.WordManager;
+import utils.WordManager.WordManager;
 
 /**
  * Main classe of the project
@@ -55,10 +55,11 @@ public class Pendu {
      * Main game method
      * init variables and manage each stage
      *
-     * @param difficulty difficulty choosen by user
+     * @param difficulty  difficulty choosen by user
+     * @param wordManager how words are manage
      */
-    public void startGame(int difficulty) {
-        wordTofind = WordManager.instance.getRandomWordForDifficulty(difficulty).toUpperCase();
+    public void startGame(int difficulty, WordManager wordManager) {
+        wordTofind = wordManager.getRandomWordForDifficulty(difficulty).toUpperCase();
         isWordFind = false;
         nbFail = 0;
         nbTry = 0;
