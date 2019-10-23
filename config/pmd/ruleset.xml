@@ -17,6 +17,16 @@
     </rule>
     <rule ref="rulesets/java/design.xml"/>
 
+    <rule ref="category/java/errorprone.xml/AvoidDuplicateLiterals">
+        <properties>
+            <property name="separator" value=","/>
+            <property name="maxDuplicateLiterals" value="45"/>
+            <property name="minimumLength" value="25"/>
+            <property name="skipAnnotations" value="false"/>
+            <property name="exceptionList" value=""/>
+        </properties>
+    </rule>
+
 
     <!--<rule ref="rulesets/java/finalizer.xml"/>
     <rule ref="rulesets/java/imports.xml"/>
