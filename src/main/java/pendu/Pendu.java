@@ -4,6 +4,8 @@ import utils.DrawManager;
 import utils.KeyboardManager;
 import utils.wordmanager.WordManager;
 
+import java.util.Locale;
+
 /**
  * Main classe of the project
  * This is how work the game
@@ -58,6 +60,7 @@ public class Pendu {
      */
     public void startGame(int difficulty, WordManager wordManager) {
         wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
+        System.out.println("Word to find : " + wordTofind);
         isWordFind = false;
         nbFail = 0;
         nbTry = 0;
@@ -81,7 +84,7 @@ public class Pendu {
     private void newUserLetter() {
         nbTry++;
         displayInfo();
-        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : "));
+        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : ").toUpperCase(Locale.getDefault()));
     }
 
     /**
