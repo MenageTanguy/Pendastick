@@ -8,7 +8,15 @@ import java.util.Random;
  */
 public class WordManager {
 
-    private ArrayList<String> wordArrayLevel01, wordArrayLevel02;
+    /**
+     * Word array for difficulty one
+     */
+    private ArrayList<String> wordArrayLevel01;
+
+    /**
+     * Word array for difficulty two
+     */
+    private ArrayList<String> wordArrayLevel02;
 
     /**
      * instance de gestion des mots
@@ -43,8 +51,9 @@ public class WordManager {
 
     /**
      * Get a random word corresponding to the selected difficulty
-     * @param difficulty
-     * @return
+     *
+     * @param difficulty difficulty choosen
+     * @return a random word for this difficulty
      */
     public String getRandomWordForDifficulty(int difficulty) {
         Random rand = new Random();

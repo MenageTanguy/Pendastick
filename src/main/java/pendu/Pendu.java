@@ -47,9 +47,9 @@ public class Pendu {
             newUserLetter();
         }
         // word fine
-        if (isWordFine)
+        if (isWordFine) {
             System.out.println("Congratz ! You win");
-        else {
+        } else {
             displayInfo();
             System.out.println("Harghh... you loose...");
         }

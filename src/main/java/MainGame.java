@@ -1,7 +1,7 @@
 import pendu.Pendu;
 import utils.KeyboardManager;
 
-public class Main {
+public class MainGame {
 
     private static boolean gameRunning = false, continueGame = true;
 
@@ -11,7 +11,7 @@ public class Main {
     }
 
     /**
-     * Main logic of how run the program
+     * MainGame logic of how run the program
      */
     private static void startPlaying() {
         while (gameRunning || continueGame) {
@@ -32,13 +32,13 @@ public class Main {
      */
     private static void askToPlay() {
         boolean saisiInvalid = true;
-        String s;
+        String input;
         while (saisiInvalid) {
-            s = KeyboardManager.instance.readCharacter("Do you want to start a new game ? (Y/N)");
-            if (KeyboardManager.instance.isSame(s, "Y")) {
+            input = KeyboardManager.instance.readCharacter("Do you want to start a new game ? (Y/N)");
+            if (KeyboardManager.instance.isSame(input, "Y")) {
                 saisiInvalid = false;
                 gameRunning = true;
-            } else if (KeyboardManager.instance.isSame(s, "N")) {
+            } else if (KeyboardManager.instance.isSame(input, "N")) {
                 continueGame = false;
                 gameRunning = false;
                 saisiInvalid = false;
