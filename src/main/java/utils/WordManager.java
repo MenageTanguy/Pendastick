@@ -57,4 +57,16 @@ public class WordManager {
                 return wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
         }
     }
+
+    private void generateWordArray() {
+    }
+
+    public ArrayList<String> getWordArrayLevel01() {
+        return wordArrayLevel01;
+    }
+
+    public ArrayList<String> getWordArrayLevel02() {
+        return wordArrayLevel02;
+    }
 }
+
