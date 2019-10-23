@@ -8,7 +8,8 @@ import java.util.Random;
  */
 public class WordManager {
 
-    private ArrayList<String> wordArrayLevel01, wordArrayLevel02;
+    private ArrayList<String> wordArrayLevel01 ;
+    private ArrayList<String> wordArrayLevel02;
 
     /**
      * instance de gestion des mots
