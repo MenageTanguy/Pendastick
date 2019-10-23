@@ -3,6 +3,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'pmd'
+    id 'jacoco'
 }
 
 repositories {
@@ -21,3 +22,19 @@ pmd {
     pmdTest.enabled= false
     ruleSetFiles = files("config/pmd/ruleset.xml")
 }
+
+jacoco {
+    toolVersion = "0.8.4"
+    reportsDir = file("build/reports/JaCoCo")
+}
+
+
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled true
+        html.destination file("build/reports/JaCoCo/jacocoHtml")
+    }
+}
+
