@@ -11,15 +11,13 @@ import utils.WordManager.WordManager;
 public class Pendu {
 
     /**
-     * Pendu instance singleton
-     */
-    public static Pendu instance = new Pendu();
-
-    /**
      * Character used for empty letter space
      */
     private static final String CHARACTER_EMPTY_LETTER = "=";
-
+    /**
+     * Pendu instance singleton
+     */
+    public static Pendu instance = new Pendu();
     /**
      * Word to find
      */

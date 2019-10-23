@@ -9,6 +9,9 @@ import utils.WordManager.WordManagerFactory;
  */
 public class TestPendu {
 
+    private static final String PATH_TO_FILE_TEST = "PATH_TO_FILE_TEST";
+
+
     /**
      * Test difficulty level 01
      * check word quality
@@ -18,14 +21,7 @@ public class TestPendu {
     public void testPenduDifficulty01Internal() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         System.out.println("testPenduDifficulty01Internal, check size word");
-        int difficulty = 1;
-        int minLength = 3;
-        int maxLenght = 4;
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkWordDifficulty(wordManager, 1, 3, 4);
     }
 
     /**
@@ -37,9 +33,43 @@ public class TestPendu {
     public void testPenduDifficulty02Internal() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         System.out.println("testPenduDifficulty02Internal, check size word");
-        int difficulty = 2;
-        int minLength = 5;
-        int maxLenght = Integer.MAX_VALUE;
+        checkWordDifficulty(wordManager, 2, 5, Integer.MAX_VALUE);
+    }
+
+    /**
+     * Test difficulty level 01
+     * check word quality
+     * Test 5 randoms word for difficulty 01
+     */
+    @Test
+    public void testPenduDifficulty01External() {
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
+        System.out.println("testPenduDifficulty01External, check size word");
+        checkWordDifficulty(wordManager, 1, 3, 4);
+    }
+
+    /**
+     * Test difficulty level 02
+     * check word quality
+     * Test 5 randoms word for difficulty 02
+     */
+    @Test
+    public void testPenduDifficulty02External() {
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
+        System.out.println("testPenduDifficulty02External, check size word");
+        checkWordDifficulty(wordManager, 2, 5, Integer.MAX_VALUE);
+    }
+
+
+    /**
+     * Check Word difficulty using params
+     *
+     * @param wordManager word manager to test
+     * @param difficulty  difficulty  to test
+     * @param minLength   min word size
+     * @param maxLenght   max word size
+     */
+    private void checkWordDifficulty(WordManager wordManager, int difficulty, int minLength, int maxLenght) {
         checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
         checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
         checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
@@ -53,7 +83,24 @@ public class TestPendu {
     @Test
     public void testPenduRandomWordInternal() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        checkWordIntoManager(wordManager);
+    }
 
+    /**
+     * Test if a random word is included in word list
+     */
+    @Test
+    public void testPenduRandomWordExternal() {
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
+        checkWordIntoManager(wordManager);
+    }
+
+    /**
+     * Check if random word selector get words existing into
+     *
+     * @param wordManager wordManager to test
+     */
+    private void checkWordIntoManager(WordManager wordManager) {
         // Difficulty 01
         System.out.println("testPenduRandomWordInternal, check if word is random word is contain in the good list");
         System.out.println("Test difficulty 1 list..");

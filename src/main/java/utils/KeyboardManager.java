@@ -11,15 +11,13 @@ import java.util.Scanner;
 public class KeyboardManager {
 
     /**
-     * instance for keyboard management
-     */
-    public static KeyboardManager instance = new KeyboardManager();
-
-    /**
      * STATIC error message display if invalid input
      */
     private static final String ERROR_MESSAGE = "Invalid input, please try again";
-
+    /**
+     * instance for keyboard management
+     */
+    public static KeyboardManager instance = new KeyboardManager();
     /**
      * Scanner used to read console input
      */
@@ -32,6 +30,20 @@ public class KeyboardManager {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * Method to check if string is a valid path
+     *
+     * @param path string to check
+     * @return true if valid path
+     */
+    private static boolean isValidPath(String path) {
+        try {
+            Paths.get(path);
+        } catch (InvalidPathException | NullPointerException ex) {
+            return false;
+        }
+        return true;
+    }
 
     /**
      * Read and check String
@@ -119,7 +131,6 @@ public class KeyboardManager {
         return readNumber(message, min, max);
     }
 
-
     /**
      * Method to check if a string is an integer
      *
@@ -151,21 +162,6 @@ public class KeyboardManager {
             return readPath(message);
         }
         return input;
-    }
-
-    /**
-     * Method to check if string is a valid path
-     *
-     * @param path string to check
-     * @return true if valid path
-     */
-    private static boolean isValidPath(String path) {
-        try {
-            Paths.get(path);
-        } catch (InvalidPathException | NullPointerException ex) {
-            return false;
-        }
-        return true;
     }
 }
 
