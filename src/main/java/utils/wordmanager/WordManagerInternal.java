@@ -2,6 +2,9 @@ package utils.wordmanager;
 
 import java.util.ArrayList;
 
+/**
+ * Generate words using predifine lists
+ */
 class WordManagerInternal extends AbstractWordManagerBase {
 
     /**

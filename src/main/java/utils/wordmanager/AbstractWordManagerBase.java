@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
 
+/**
+ * Abstract class for WordManager
+ */
 public abstract class AbstractWordManagerBase implements WordManager {
 
     /**
