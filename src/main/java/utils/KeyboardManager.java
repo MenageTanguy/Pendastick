@@ -155,22 +155,6 @@ public class KeyboardManager {
             }
         }
         return true;
-//        boolean result = false;
-//        if (!input.isEmpty()) {
-//            int i = 0;
-//            for (; i < input.length(); i++) {
-//                if (i == 0 && input.charAt(i) == '-') {
-//                    if (input.length() == CHARACTER_SIZE) break;
-//                }
-//                if (Character.digit(input.charAt(i), 10) < 0){
-//                    break;
-//                }
-//            }
-//            if (i ==  input.length() - 1) {
-//                result = true;
-//            }
-//        }
-//        return result;
     }
 
     /**
