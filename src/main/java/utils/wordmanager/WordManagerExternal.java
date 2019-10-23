@@ -41,8 +41,12 @@ class WordManagerExternal extends AbstractWordManagerBase {
      */
     private void addWordIntoGoodList(ArrayList<String> wordList) {
         for (String word : wordList) {
+            word = word.trim().toUpperCase(Locale.getDefault());
+            if (!word.matches("[a-zA-Z]+"))
+                continue;
             // 1 & 2 chars words are ignored
             if (word.length() > 2) {
+                System.out.println("Word to add : " + word);
                 // Add to list 1
                 if (word.length() < 5) {
                     wordArrayLevel01.add(word.toUpperCase(Locale.getDefault()));
