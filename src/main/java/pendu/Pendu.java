@@ -4,8 +4,6 @@ import utils.DrawManager;
 import utils.KeyboardManager;
 import utils.WordManager;
 
-import java.awt.event.KeyEvent;
-
 /**
  * Main classe of the project
  * This is how work the game
@@ -17,16 +15,39 @@ public class Pendu {
      */
     public static Pendu instance = new Pendu();
 
+    /**
+     * Character used for empty letter space
+     */
     private static final String CHARACTER_EMPTY_LETTER = "=";
 
-    private String wordTofine;
+    /**
+     * Word to find
+     */
+    private String wordTofind;
 
+    /**
+     * Current word display
+     */
     private String currentWordState;
 
-    private int nbTry, nbFail;
+    /**
+     * Current nb of try
+     */
+    private int nbTry;
 
-    private boolean isWordFine;
+    /**
+     * Current nb of fails
+     */
+    private int nbFail;
 
+    /**
+     * If word is find = true
+     */
+    private boolean isWordFind;
+
+    /**
+     * Private constructor
+     */
     private Pendu() {
     }
 
@@ -37,19 +58,19 @@ public class Pendu {
      * @param difficulty difficulty choosen by user
      */
     public void startGame(int difficulty) {
-        wordTofine = WordManager.instance.getRandomWordForDifficulty(difficulty).toUpperCase();
-        isWordFine = false;
+        wordTofind = WordManager.instance.getRandomWordForDifficulty(difficulty).toUpperCase();
+        isWordFind = false;
         nbFail = 0;
         nbTry = 0;
         generateCurrentWordState();
         // Game running
-        while (nbFail < 10 && !isWordFine) {
+        while (nbFail < 10 && !isWordFind) {
             newUserLetter();
         }
         // word fine
-        if (isWordFine)
+        if (isWordFind) {
             System.out.println("Congratz ! You win");
-        else {
+        } else {
             displayInfo();
             System.out.println("Harghh... you loose...");
         }
@@ -71,19 +92,19 @@ public class Pendu {
      */
     private void checkLetter(String readCharacter) {
         // IF letter is in the word
-        if (wordTofine.contains(readCharacter)) {
-            for (int i = -1; (i = wordTofine.indexOf(readCharacter, i + 1)) != -1; i++) {
+        if (wordTofind.contains(readCharacter)) {
+            for (int i = -1; (i = wordTofind.indexOf(readCharacter, i + 1)) != -1; i++) {
                 currentWordState = currentWordState.substring(0, i) + readCharacter + currentWordState.substring(i + 1);
             }
             // if word not contains '=' anymore, user won
-            isWordFine = !currentWordState.contains(CHARACTER_EMPTY_LETTER);
+            isWordFind = !currentWordState.contains(CHARACTER_EMPTY_LETTER);
         } else {
             nbFail++;
         }
 
     }
 
-    /*
+    /**
      * Display game advancement info (only text here)
      */
     private void displayInfo() {
@@ -97,7 +118,7 @@ public class Pendu {
      */
     private void generateCurrentWordState() {
         currentWordState = "";
-        for (int i = 0; i < wordTofine.length(); i++) {
+        for (int i = 0; i < wordTofind.length(); i++) {
             currentWordState += CHARACTER_EMPTY_LETTER;
         }
     }
