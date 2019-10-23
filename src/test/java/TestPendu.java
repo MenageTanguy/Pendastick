@@ -2,6 +2,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import utils.DrawManager;
 import utils.WordManager.WordManager;
+import utils.WordManager.WordManagerFactory;
 
 /**
  * Class test for pendu
@@ -14,16 +15,17 @@ public class TestPendu {
      * Test 5 randoms word for difficulty 01
      */
     @Test
-    public void testPenduDifficulty01() {
-        System.out.println("testPenduDifficulty01, check size word");
+    public void testPenduDifficulty01Internal() {
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        System.out.println("testPenduDifficulty01Internal, check size word");
         int difficulty = 1;
         int minLength = 3;
         int maxLenght = 4;
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
     }
 
     /**
@@ -32,35 +34,38 @@ public class TestPendu {
      * Test 5 randoms word for difficulty 02
      */
     @Test
-    public void testPenduDifficulty02() {
-        System.out.println("testPenduDifficulty02, check size word");
+    public void testPenduDifficulty02Internal() {
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        System.out.println("testPenduDifficulty02Internal, check size word");
         int difficulty = 2;
         int minLength = 5;
         int maxLenght = Integer.MAX_VALUE;
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(WordManager.instance.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
     }
 
     /**
      * Test if a random word is included in word list
      */
     @Test
-    public void testPenduRandomWord() {
+    public void testPenduRandomWordInternal() {
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+
         // Difficulty 01
-        System.out.println("testPenduRandomWord, check if word is random word is contain in the good list");
+        System.out.println("testPenduRandomWordInternal, check if word is random word is contain in the good list");
         System.out.println("Test difficulty 1 list..");
-        Assert.assertTrue("This word is not contain in the list !", WordManager.instance.getWordArrayLevel01().contains(WordManager.instance.getRandomWordForDifficulty(1)));
-        Assert.assertTrue("This word is not contain in the list !", WordManager.instance.getWordArrayLevel01().contains(WordManager.instance.getRandomWordForDifficulty(1)));
-        Assert.assertTrue("This word is not contain in the list !", WordManager.instance.getWordArrayLevel01().contains(WordManager.instance.getRandomWordForDifficulty(1)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(1)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(1)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(1)));
         System.out.println(".. OK");
         System.out.println("Test difficulty 2 list..");
         // Difficulty 02
-        Assert.assertTrue("This word is not contain in the list !", WordManager.instance.getWordArrayLevel02().contains(WordManager.instance.getRandomWordForDifficulty(2)));
-        Assert.assertTrue("This word is not contain in the list !", WordManager.instance.getWordArrayLevel02().contains(WordManager.instance.getRandomWordForDifficulty(2)));
-        Assert.assertTrue("This word is not contain in the list !", WordManager.instance.getWordArrayLevel02().contains(WordManager.instance.getRandomWordForDifficulty(2)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(2)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(2)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(2)));
         System.out.println(".. OK");
     }
 
@@ -68,7 +73,7 @@ public class TestPendu {
      * Check if draw is the good one for a specific nb of failure.
      */
     @Test
-    public void testPenduDrawIsGood(){
+    public void testPenduDrawIsGood() {
         System.out.println("testPenduDrawIsGood check if draw is good !");
         Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(0), DrawManager.PENDU_STATE_0);
         Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(1), DrawManager.PENDU_STATE_1);
