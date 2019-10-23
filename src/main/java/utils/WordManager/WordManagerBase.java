@@ -1,6 +1,7 @@
 package utils.WordManager;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 public abstract class WordManagerBase implements WordManager {
@@ -17,13 +18,17 @@ public abstract class WordManagerBase implements WordManager {
 
     public String getRandomWordForDifficulty(int difficulty) {
         Random rand = new Random();
+        String upperCaseWordToRet;
         switch (difficulty) {
             case 1:
-                return wordArrayLevel01.get(rand.nextInt(wordArrayLevel01.size()));
+                upperCaseWordToRet = wordArrayLevel01.get(rand.nextInt(wordArrayLevel01.size()));
+                break;
             case 2:
             default:
-                return wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
+                upperCaseWordToRet = wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
+                break;
         }
+        return upperCaseWordToRet.toUpperCase(Locale.getDefault());
     }
 
     public ArrayList<String> getWordArrayLevel01() {

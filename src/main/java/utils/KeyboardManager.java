@@ -3,6 +3,7 @@ package utils;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Paths;
 import java.text.Collator;
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,10 @@ public class KeyboardManager {
      * STATIC error message display if invalid input
      */
     private static final String ERROR_MESSAGE = "Invalid input, please try again";
+    /**
+     * Static character size
+     */
+    private static final int CHARACTER_SIZE = 1;
     /**
      * instance for keyboard management
      */
@@ -75,7 +80,7 @@ public class KeyboardManager {
      */
     public String readCharacter(String message) {
         String input = readString(message);
-        if (input.length() > 1) {
+        if (input.length() > CHARACTER_SIZE) {
             System.out.println("Only one character expected, please try again");
             return readCharacter(message);
         } else if (isValidLetter(input)) {
@@ -106,7 +111,7 @@ public class KeyboardManager {
     public boolean isSame(String word1, String word2) {
         Collator insenstiveStringComparator = Collator.getInstance();
         insenstiveStringComparator.setStrength(Collator.PRIMARY);
-        return insenstiveStringComparator.compare(word1.toLowerCase(), word2.toLowerCase()) == 0;
+        return insenstiveStringComparator.compare(word1.toLowerCase(Locale.getDefault()), word2.toLowerCase(Locale.getDefault())) == 0;
     }
 
     /**
@@ -122,7 +127,7 @@ public class KeyboardManager {
         System.out.println(message);
         String input = scanner.nextLine().trim();
         if (isInteger(input)) {
-            value = Integer.valueOf(input);
+            value = Integer.parseInt(input);
             if (value >= min && value <= max) {
                 return value;
             }
@@ -141,12 +146,28 @@ public class KeyboardManager {
         if (input.isEmpty()) return false;
         for (int i = 0; i < input.length(); i++) {
             if (i == 0 && input.charAt(i) == '-') {
-                if (input.length() == 1) return false;
+                if (input.length() == CHARACTER_SIZE) return false;
                 else continue;
             }
             if (Character.digit(input.charAt(i), 10) < 0) return false;
         }
         return true;
+//        boolean result = false;
+//        if (!input.isEmpty()) {
+//            int i = 0;
+//            for (; i < input.length(); i++) {
+//                if (i == 0 && input.charAt(i) == '-') {
+//                    if (input.length() == CHARACTER_SIZE) break;
+//                }
+//                if (Character.digit(input.charAt(i), 10) < 0){
+//                    break;
+//                }
+//            }
+//            if (i ==  input.length() - 1) {
+//                result = true;
+//            }
+//        }
+//        return result;
     }
 
     /**

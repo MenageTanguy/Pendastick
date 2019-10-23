@@ -57,7 +57,7 @@ public class Pendu {
      * @param wordManager how words are manage
      */
     public void startGame(int difficulty, WordManager wordManager) {
-        wordTofind = wordManager.getRandomWordForDifficulty(difficulty).toUpperCase();
+        wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
         isWordFind = false;
         nbFail = 0;
         nbTry = 0;
@@ -81,7 +81,7 @@ public class Pendu {
     private void newUserLetter() {
         nbTry++;
         displayInfo();
-        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : ").toUpperCase());
+        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : "));
     }
 
     /**
