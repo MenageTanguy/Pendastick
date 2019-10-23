@@ -1,10 +1,25 @@
 import pendu.Pendu;
 import utils.KeyboardManager;
 
+/**
+ * Main class of the game, run the program and game logic
+ */
 public class MainGame {
 
-    private static boolean gameRunning = false, continueGame = true;
+    /**
+     * State of game (is a game running ? )
+     */
+    private static boolean gameRunning = false;
+    /**
+     * State of program, if false, program terminates
+     */
+    private static boolean continueGame = true;
 
+    /**
+     * Main class to launch program
+     *
+     * @param args args to launch
+     */
     public static void main(String[] args) {
         System.out.println("Welcome to Pendastick\n___________________________");
         startPlaying();
@@ -51,6 +66,7 @@ public class MainGame {
      * Ask game difficulty
      */
     private static int askDifficulty() {
-        return KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)", 1, 2);
+        return KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n " +
+                "2 - Normal (5 or more characters)", 1, 2);
     }
 }
