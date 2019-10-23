@@ -9,7 +9,7 @@ import utils.WordManager.WordManagerFactory;
  */
 public class TestPendu {
 
-    private static final String PATH_TO_FILE_TEST = "PATH_TO_FILE_TEST";
+    private static final String PATH_TO_FILE_TEST = "src/test/java/test.txt";
 
 
     /**
@@ -31,7 +31,7 @@ public class TestPendu {
      */
     @Test
     public void testPenduDifficulty02Internal() {
-        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
         System.out.println("testPenduDifficulty02Internal, check size word");
         checkWordDifficulty(wordManager, 2, 5, Integer.MAX_VALUE);
     }
