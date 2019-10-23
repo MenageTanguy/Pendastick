@@ -59,17 +59,13 @@ public class KeyboardManager {
      */
     private String readString(String message) {
         String value;
-        boolean error = false;
         while (true) {
-            if (error) {
-                System.out.println(ERROR_MESSAGE);
-            }
             System.out.println(message);
             value = scanner.nextLine().trim();
             if (!value.isEmpty()) {
                 return value;
             }
-            error = true;
+            System.out.println(ERROR_MESSAGE);
         }
     }
 

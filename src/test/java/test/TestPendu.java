@@ -1,6 +1,9 @@
+package test;
+
 import org.junit.Assert;
 import org.junit.Test;
 import utils.DrawManager;
+import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 import utils.wordmanager.WordManagerFactory;
 
@@ -9,8 +12,10 @@ import utils.wordmanager.WordManagerFactory;
  */
 public class TestPendu {
 
-    private static final String PATH_TO_FILE_TEST = "src/test/java/test.txt";
-
+    /**
+     * PATH to a test file
+     */
+    private static final String PATH_TO_FILE_TEST = "src/test/java/test/test.txt";
 
     /**
      * Test difficulty level 01
@@ -21,7 +26,7 @@ public class TestPendu {
     public void testPenduDifficulty01Internal() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         System.out.println("testPenduDifficulty01Internal, check size word");
-        checkWordDifficulty(wordManager, 1, 3, 4);
+        checkWordDifficulty(wordManager, EnumDifficulty.EASY);
     }
 
     /**
@@ -33,7 +38,7 @@ public class TestPendu {
     public void testPenduDifficulty02Internal() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
         System.out.println("testPenduDifficulty02Internal, check size word");
-        checkWordDifficulty(wordManager, 2, 5, Integer.MAX_VALUE);
+        checkWordDifficulty(wordManager, EnumDifficulty.EASY);
     }
 
     /**
@@ -45,7 +50,7 @@ public class TestPendu {
     public void testPenduDifficulty01External() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
         System.out.println("testPenduDifficulty01External, check size word");
-        checkWordDifficulty(wordManager, 1, 3, 4);
+        checkWordDifficulty(wordManager, EnumDifficulty.MEDIUM);
     }
 
     /**
@@ -57,24 +62,22 @@ public class TestPendu {
     public void testPenduDifficulty02External() {
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
         System.out.println("testPenduDifficulty02External, check size word");
-        checkWordDifficulty(wordManager, 2, 5, Integer.MAX_VALUE);
+        checkWordDifficulty(wordManager, EnumDifficulty.MEDIUM);
     }
 
 
     /**
      * Check Word difficulty using params
      *
-     * @param wordManager word manager to test
-     * @param difficulty  difficulty  to test
-     * @param minLength   min word size
-     * @param maxLenght   max word size
+     * @param wordManager    word manager to test
+     * @param enumDifficulty difficulty tocheck
      */
-    private void checkWordDifficulty(WordManager wordManager, int difficulty, int minLength, int maxLenght) {
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
-        checkSizeWordTest(wordManager.getRandomWordForDifficulty(difficulty), minLength, maxLenght);
+    private void checkWordDifficulty(WordManager wordManager, EnumDifficulty enumDifficulty) {
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(enumDifficulty.getDifficultyValue()), enumDifficulty.getMinSize(), enumDifficulty.getMaxSize());
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(enumDifficulty.getDifficultyValue()), enumDifficulty.getMinSize(), enumDifficulty.getMaxSize());
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(enumDifficulty.getDifficultyValue()), enumDifficulty.getMinSize(), enumDifficulty.getMaxSize());
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(enumDifficulty.getDifficultyValue()), enumDifficulty.getMinSize(), enumDifficulty.getMaxSize());
+        checkSizeWordTest(wordManager.getRandomWordForDifficulty(enumDifficulty.getDifficultyValue()), enumDifficulty.getMinSize(), enumDifficulty.getMaxSize());
     }
 
     /**
@@ -104,15 +107,15 @@ public class TestPendu {
         // Difficulty 01
         System.out.println("testPenduRandomWordInternal, check if word is random word is contain in the good list");
         System.out.println("Test difficulty 1 list..");
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(1)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(1)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(1)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY.getDifficultyValue())));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY.getDifficultyValue())));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY.getDifficultyValue())));
         System.out.println(".. OK");
         System.out.println("Test difficulty 2 list..");
         // Difficulty 02
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(2)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(2)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(2)));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM.getDifficultyValue())));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM.getDifficultyValue())));
+        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM.getDifficultyValue())));
         System.out.println(".. OK");
     }
 

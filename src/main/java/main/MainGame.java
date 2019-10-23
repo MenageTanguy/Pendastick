@@ -1,5 +1,8 @@
+package main;
+
 import pendu.Pendu;
 import utils.KeyboardManager;
+import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 import utils.wordmanager.WordManagerFactory;
 
@@ -28,7 +31,7 @@ public class MainGame {
     }
 
     /**
-     * MainGame logic of how run the program
+     * main.MainGame logic of how run the program
      */
     private static void startPlaying() {
         while (gameRunning || continueGame) {
@@ -70,7 +73,7 @@ public class MainGame {
      */
     private static int askDifficulty() {
         return KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n " +
-                "2 - Normal (5 or more characters)", 1, 2);
+                "2 - Normal (5 or more characters)", EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue());
     }
 
 
@@ -80,7 +83,7 @@ public class MainGame {
     private static WordManager askWordDictionnary() {
         int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - " +
                 "Internal (Program dictionnary)\n 2 - Custom (Use your own file)", 1, 2);
-        return WordManagerFactory.getInstance().getWordManager(dictionnaryChoice == 1, askForPath(dictionnaryChoice));
+        return WordManagerFactory.getInstance().getWordManager(dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue(), askForPath(dictionnaryChoice));
 
     }
 
@@ -92,7 +95,7 @@ public class MainGame {
      */
     private static String askForPath(int dictionnaryChoice) {
         String inputPath = "";
-        if (dictionnaryChoice != 1) {
+        if (dictionnaryChoice != EnumDifficulty.EASY.getDifficultyValue()) {
             inputPath = KeyboardManager.instance.readPath("Please enter a valid path for your custom dictionnary");
         }
         return inputPath;
