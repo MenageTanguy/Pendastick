@@ -4,6 +4,7 @@ plugins {
     id 'idea'
     id 'pmd'
     id 'jacoco'
+    id 'checkstyle'
 }
 
 repositories {
@@ -19,7 +20,7 @@ dependencies {
 pmd {
     toolVersion = '6.18.0'
     ignoreFailures = true
-    pmdTest.enabled= false
+    pmdTest.enabled = false
     ruleSetFiles = files("config/pmd/ruleset.xml")
 }
 
@@ -27,8 +28,6 @@ jacoco {
     toolVersion = "0.8.4"
     reportsDir = file("build/reports/JaCoCo")
 }
-
-
 
 jacocoTestReport {
     reports {
@@ -38,3 +37,20 @@ jacocoTestReport {
     }
 }
 
+checkstyle {
+    toolVersion = "7.8.1"
+    ignoreFailures = true
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+checkstyleMain {
+    source = 'src/main/java'
+}
+checkstyleTest {
+    source = 'src/test/java'
+}
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled false
+        html.enabled true
+    }
+}
