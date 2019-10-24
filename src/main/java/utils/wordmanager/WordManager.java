@@ -2,7 +2,7 @@ package utils.wordmanager;
 
 import utils.enums.EnumDifficulty;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Use this word manager for words
@@ -22,13 +22,13 @@ public interface WordManager {
      *
      * @return corresponding list
      */
-    ArrayList<String> getWordArrayLevel01();
+    List<String> getWordArrayLevel01();
 
     /**
      * Get list for word difficulty 2
      *
      * @return corresponding list
      */
-    ArrayList<String> getWordArrayLevel02();
+    List<String> getWordArrayLevel02();
 }
 
