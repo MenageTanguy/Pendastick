@@ -88,8 +88,9 @@ public class MainGame {
             System.out.println("Only Normal mode is available, let's go !");
             resultValue = EnumDifficulty.EASY;
         } else {
-            resultValue = EnumDifficulty.getEnumByValue(KeyboardManager.instance.readNumber("Choose difficulty :\n" +
-                            " 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)",
+            resultValue = EnumDifficulty.getEnumByValue(KeyboardManager.instance.readNumber(
+                    "Choose difficulty :\n"
+                          +  " 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)",
                     EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue()));
         }
         return resultValue;
@@ -100,8 +101,8 @@ public class MainGame {
      * Method to ask word management to user
      */
     private static WordManager askWordDictionnary() {
-        int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - " +
-                "Internal (Program dictionnary)\n 2 - Custom (Use your own file)", 1, 2);
+        int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - "
+                + "Internal (Program dictionnary)\n 2 - Custom (Use your own file)", 1, 2);
         return WordManagerFactory.getInstance().getWordManager(
                 dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue(), askForPath(dictionnaryChoice));
 

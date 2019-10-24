@@ -6,96 +6,97 @@ package utils;
 public class DrawManager {
 
     public static final String PENDU_STATE_0 = "\n\n\n\n\n\n\n\n\n\n";
-    public static final String PENDU_STATE_1 = "\n" +
-            "\n" +
-            "\n" +
-            "\n" +
-            "\n" +
-            "\n" +
-            "\n" +
-            "\n" +
-            "  __|________\n";
-    public static final String PENDU_STATE_2 = "\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "  __|________";
-    public static final String PENDU_STATE_3 = "     _____________\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "  __|________";
-    public static final String PENDU_STATE_4 = "     _____________\n" +
-            "    | / \n" +
-            "    |/ \n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            " ___|________";
-    public static final String PENDU_STATE_5 = "     _____________\n" +
-            "    | /         |\n" +
-            "    |/          |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "  __|________";
-    public static final String PENDU_STATE_6 = "     _____________\n" +
-            "    | /         |\n" +
-            "    |/          |\n" +
-            "    |           O\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "  __|________";
-    public static final String PENDU_STATE_7 = "     _____________\n" +
-            "    | /         |\n" +
-            "    |/          |\n" +
-            "    |           O\n" +
-            "    |           |\n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            "  __|________";
-    public static final String PENDU_STATE_8 = "     _____________\n" +
-            "    | /         |\n" +
-            "    |/          |\n" +
-            "    |           O\n" +
-            "    |          /|  \n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            " ___|________";
-    public static final String PENDU_STATE_9 = "     _____________\n" +
-            "    | /         |\n" +
-            "    |/          |\n" +
-            "    |           O\n" +
-            "    |          /|\\ \n" +
-            "    |\n" +
-            "    |\n" +
-            "    |\n" +
-            " ___|________";
-    public static final String PENDU_STATE_10 = "     _____________\n" +
-            "    | /         |\n" +
-            "    |/          |\n" +
-            "    |           O\n" +
-            "    |          /|\\ \n" +
-            "    |          / \\ \n" +
-            "    |\n" +
-            "    |\n" +
-            "  __|________";
+    public static final String PENDU_STATE_1 = "\n"
+            + "\n"
+            + "\n"
+            + "\n"
+            + "\n"
+            + "\n"
+            + "\n"
+            + "\n"
+            + "  __|________\n";
+    public static final String PENDU_STATE_2 = "\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "  __|________";
+    public static final String PENDU_STATE_3 = "     _____________\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "  __|________";
+    public static final String PENDU_STATE_4 = "     _____________\n"
+            + "    | / \n"
+            + "    |/ \n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + " ___|________";
+    public static final String PENDU_STATE_5 = "     _____________\n"
+            + "    | /         |\n"
+            + "    |/          |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "  __|________";
+    public static final String PENDU_STATE_6 = "     _____________\n"
+            + "    | /         |\n"
+            + "    |/          |\n"
+            + "    |           O\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "  __|________";
+    public static final String PENDU_STATE_7 = "     _____________\n"
+            + "    | /         |\n"
+            + "    |/          |\n"
+            + "    |           O\n"
+            + "    |           |\n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + "  __|________";
+    public static final String PENDU_STATE_8 = "     _____________\n"
+            + "    | /         |\n"
+            + "    |/          |\n"
+            + "    |           O\n"
+            + "    |          /|  \n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + " ___|________";
+    public static final String PENDU_STATE_9 = "     _____________\n"
+            + "    | /         |\n"
+            + "    |/          |\n"
+            + "    |           O\n"
+            + "    |          /|\\ \n"
+            + "    |\n"
+            + "    |\n"
+            + "    |\n"
+            + " ___|________";
+    public static final String PENDU_STATE_10 = "     _____________\n"
+            + "    | /         |\n"
+            + "    |/          |\n"
+            + "    |           O\n"
+            + "    |          /|\\ \n"
+            + "    |          / \\ \n"
+            + "    |\n"
+            + "    |\n"
+            + "  __|________";
+
     public static DrawManager instance = new DrawManager();
 
     private DrawManager() {
