@@ -13,7 +13,7 @@ public class MainGame {
      * @param args args to launch
      */
     public static void main(String[] args) {
-        System.out.println("Welcome to Pendastick\n_______________n____________");
+        System.out.println("Welcome to Pendastick\n___________________________");
         Application application = new Application();
         application.startPlaying();
     }
