@@ -1,11 +1,8 @@
 package test;
 
 import org.junit.Assert;
-import utils.KeyboardManager;
 import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
-
-import java.io.ByteArrayInputStream;
 
 abstract class TestUtils {
 
@@ -13,6 +10,7 @@ abstract class TestUtils {
      * PATH to a test file
      */
     static final String PATH_TO_FILE_TEST = "src/test/java/test/test.txt";
+    static final String PATH_ONE_WORD = "src/test/java/test/testOneWord.txt";
 
     /**
      * Check Word difficulty using params
