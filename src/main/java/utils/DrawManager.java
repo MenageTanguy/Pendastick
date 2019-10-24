@@ -1,109 +1,155 @@
 package utils;
 
 /**
- * Use this class manager to draw Pendu
+ * Use this class manager to draw Pendu.
  */
 public class DrawManager {
 
+    private static final String TOP_BAR = "     _____________\n";
+    private static final String SECOND_BAR = "    | /         |\n";
+    private static final String THIRD_BAR = "    |/          |\n";
+    private static final String HEAD = "    |           O\n";
+    private static final String COLUMN = "    |\n";
+    private static final String BASE = "  __|________";
+
+    /**
+     *  State 0 of the Hangman.
+     */
     public static final String PENDU_STATE_0 = "\n\n\n\n\n\n\n\n\n\n";
-    public static final String PENDU_STATE_1 = "\n"
-            + "\n"
-            + "\n"
-            + "\n"
-            + "\n"
-            + "\n"
-            + "\n"
-            + "\n"
-            + "  __|________\n";
+
+    /**
+     *  State 1 of the Hangman.
+     */
+    public static final String PENDU_STATE_1 = "\n\n\n\n\n\n\n\n\n"
+            + "  ___|________\n";
+
+    /**
+     *  State 2 of the Hangman.
+     */
     public static final String PENDU_STATE_2 = "\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "  __|________";
-    public static final String PENDU_STATE_3 = "     _____________\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "  __|________";
-    public static final String PENDU_STATE_4 = "     _____________\n"
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 3 of the Hangman.
+     */
+    public static final String PENDU_STATE_3 = TOP_BAR
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 4 of the Hangman.
+     */
+    public static final String PENDU_STATE_4 = TOP_BAR
             + "    | / \n"
             + "    |/ \n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + " ___|________";
-    public static final String PENDU_STATE_5 = "     _____________\n"
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "  __|________";
-    public static final String PENDU_STATE_6 = "     _____________\n"
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "  __|________";
-    public static final String PENDU_STATE_7 = "     _____________\n"
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 5 of the Hangman.
+     */
+    public static final String PENDU_STATE_5 = TOP_BAR
+            + SECOND_BAR
+            + THIRD_BAR
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 6 of the Hangman.
+     */
+    public static final String PENDU_STATE_6 = TOP_BAR
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 7 of the Hangman.
+     */
+    public static final String PENDU_STATE_7 = TOP_BAR
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |           |\n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + "  __|________";
-    public static final String PENDU_STATE_8 = "     _____________\n"
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 8 of the Hangman.
+     */
+    public static final String PENDU_STATE_8 = TOP_BAR
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |          /|  \n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + " ___|________";
-    public static final String PENDU_STATE_9 = "     _____________\n"
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 9 of the Hangman.
+     */
+    public static final String PENDU_STATE_9 = TOP_BAR
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |          /|\\ \n"
-            + "    |\n"
-            + "    |\n"
-            + "    |\n"
-            + " ___|________";
-    public static final String PENDU_STATE_10 = "     _____________\n"
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + COLUMN
+            + COLUMN
+            + COLUMN
+            + BASE;
+
+    /**
+     *  State 10 of the Hangman.
+     */
+    public static final String PENDU_STATE_10 = TOP_BAR
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |          /|\\ \n"
             + "    |          / \\ \n"
-            + "    |\n"
-            + "    |\n"
-            + "  __|________";
+            + COLUMN
+            + COLUMN
+            + BASE;
 
+    /**
+     *  Instance of the DrawManage Class.
+     */
     public static DrawManager instance = new DrawManager();
 
     private DrawManager() {
     }
 
     /**
-     * Get the good draw for a know number of fails
+     * Get the good draw for a know number of fails.
      *
      * @param nbLoose number of fails
      * @return current state of draw

@@ -1,5 +1,7 @@
 package utils.wordmanager;
 
+import utils.enums.EnumDifficulty;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,12 +12,12 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 /**
- * Generate Words list using file
+ * Generate Words list using file.
  */
 class WordManagerExternal extends AbstractWordManager {
 
     /**
-     * Instance of WordManager for external files
+     * Instance of WordManager for external files.
      *
      * @param pathForExternal pathForParam
      */
@@ -30,26 +32,26 @@ class WordManagerExternal extends AbstractWordManager {
             inputList = bufferedReader.lines().collect(Collectors.toList());
             addWordIntoGoodList((ArrayList<String>) inputList);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.toString());
         }
     }
 
     /**
-     * method to add a list of word into the good difficulty array
+     * method to add a list of word into the good difficulty array.
      *
      * @param wordList list of word
      */
-    private void addWordIntoGoodList(ArrayList<String> wordList) {
+    private void addWordIntoGoodList(List<String> wordList) {
         for (String word : wordList) {
             word = word.trim().toUpperCase(Locale.getDefault());
             if (!word.matches("[a-zA-Z]+")) {
                 continue;
             }
             // 1 & 2 chars words are ignored
-            if (word.length() > 2) {
+            if (word.length() >= EnumDifficulty.EASY.getMinSize()) {
                 System.out.println("Word to add : " + word);
                 // Add to list 1
-                if (word.length() < 5) {
+                if (word.length() < EnumDifficulty.MEDIUM.getMinSize()) {
                     wordArrayLevel01.add(word.toUpperCase(Locale.getDefault()));
                 } else {
                     wordArrayLevel02.add(word.toUpperCase(Locale.getDefault()));

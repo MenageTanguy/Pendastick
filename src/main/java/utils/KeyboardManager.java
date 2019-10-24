@@ -10,22 +10,25 @@ import java.util.Locale;
 import java.util.Scanner;
 
 /**
- * Tools to read and check values
+ * Tools to read and check values.
  */
 public class KeyboardManager {
 
     /**
-     * STATIC error message display if invalid input
+     * STATIC error message display if invalid input.
      */
     private static final String ERROR_MESSAGE = "Invalid input, please try again";
+
     /**
-     * Static character size
+     * Static character size.
      */
     private static final int CHARACTER_SIZE = 1;
+
     /**
-     * instance for keyboard management
+     * instance for keyboard management.
      */
     public static KeyboardManager instance = new KeyboardManager();
+
     /**
      * Scanner used to read console input
      */
@@ -73,7 +76,7 @@ public class KeyboardManager {
     }
 
     /**
-     * Read and check St
+     * Read and check String.
      *
      * @param message message to display
      * @return string read
@@ -91,7 +94,7 @@ public class KeyboardManager {
     }
 
     /**
-     * Method to check if a specific string is a valid letter
+     * Method to check if a specific string is a valid letter.
      *
      * @param name string to check
      * @return true if alphabetic letter
@@ -101,22 +104,22 @@ public class KeyboardManager {
     }
 
     /**
-     * Check if two words are the same (insensitive comparator)
+     * Check if two words are the same (insensitive comparator).
      *
      * @param word1 word 1 to check
      * @param word2 word 2 to check
      * @return true if same
      */
     public boolean isSame(String word1, String word2) {
-        Collator insenstiveStringComparator = Collator.getInstance();
-        insenstiveStringComparator.setStrength(Collator.PRIMARY);
-        return insenstiveStringComparator.compare(
+        Collator insenstiveComparator = Collator.getInstance();
+        insenstiveComparator.setStrength(Collator.PRIMARY);
+        return insenstiveComparator.compare(
                 word1.toLowerCase(Locale.getDefault()),
                 word2.toLowerCase(Locale.getDefault())) == 0;
     }
 
     /**
-     * Read number with border
+     * Read number with border.
      *
      * @param message message to display
      * @param min     min value expected
@@ -138,7 +141,7 @@ public class KeyboardManager {
     }
 
     /**
-     * Method to check if a string is an integer
+     * Method to check if a string is an integer.
      *
      * @param input string to check
      * @return true if good
@@ -163,7 +166,7 @@ public class KeyboardManager {
     }
 
     /**
-     * Method to ask user a path and check it
+     * Method to ask user a path and check it.
      *
      * @param message message to display
      * @return valid path

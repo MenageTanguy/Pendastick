@@ -7,21 +7,21 @@ import utils.wordmanager.WordManager;
 import utils.wordmanager.WordManagerFactory;
 
 /**
- * Main class of the game, run the program and game logic
+ * Main class of the game, run the program and game logic.
  */
 public class MainGame {
 
     /**
      * State of game (is a game running ? )
      */
-    private static boolean gameRunning = false;
+    private static boolean gameRunning;
     /**
-     * State of program, if false, program terminates
+     * State of program, if false, program terminates.
      */
     private static boolean continueGame = true;
 
     /**
-     * Main class to launch program
+     * Main class to launch program.
      *
      * @param args args to launch
      */
@@ -31,7 +31,7 @@ public class MainGame {
     }
 
     /**
-     * main.MainGame logic of how run the program
+     * main.MainGame logic of how run the program.
      */
     private static void startPlaying() {
         while (gameRunning || continueGame) {
@@ -53,7 +53,7 @@ public class MainGame {
     }
 
     /**
-     * Ask to start game and change global values
+     * Ask to start game and change global values.
      */
     private static void askToPlay() {
         boolean saisiInvalid = true;
@@ -73,7 +73,7 @@ public class MainGame {
     }
 
     /**
-     * Ask game difficulty
+     * Ask game difficulty.
      *
      * @param wordManager wordManager used
      */
@@ -98,7 +98,7 @@ public class MainGame {
 
 
     /**
-     * Method to ask word management to user
+     * Method to ask word management to user.
      */
     private static WordManager askWordDictionnary() {
         int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - "
@@ -109,7 +109,7 @@ public class MainGame {
     }
 
     /**
-     * Ask path to user
+     * Ask path to user.
      *
      * @param dictionnaryChoice if 1 = internal mode and return ""
      * @return valid path

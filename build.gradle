@@ -5,6 +5,7 @@ plugins {
     id 'pmd'
     id 'jacoco'
     id 'checkstyle'
+    id "org.myire.quill.cpd" version "2.1"
 }
 
 repositories {

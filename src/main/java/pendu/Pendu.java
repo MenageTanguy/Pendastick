@@ -8,84 +8,85 @@ import utils.wordmanager.WordManager;
 import java.util.Locale;
 
 /**
- * Main classe of the project
- * This is how work the game
+ * Main classe of the project.
+ * This is how the game works.
  */
 public class Pendu {
 
     /**
-     * Character used for empty letter space
+     * Character used for empty letter space.
      */
     private static final String CHARACTER_EMPTY_LETTER = "=";
     /**
-     * Pendu instance singleton
+     * Pendu instance singleton.
      */
     public static Pendu instance = new Pendu();
     /**
-     * Word to find
+     * Word to find.
      */
     private String wordTofind;
 
     /**
-     * Current word display
+     * Current word display.
      */
     private String currentWordState;
 
     /**
-     * Current nb of try
+     * Current nb of try.
      */
     private int nbTry;
 
     /**
-     * Current nb of fails
+     * Current nb of fails.
      */
     private int nbFail;
 
     /**
-     * If word is find = true
+     * If word is find = true.
      */
-    private boolean isWordFind;
+    private boolean wordIsFind;
 
     /**
-     * Private constructor
+     * Private constructor.
      */
     private Pendu() {
     }
 
     /**
-     * Main game method
+     * Main game method.
+     * @return boolean
      */
     public boolean startGame() {
         // Game running
-        while (nbFail < 10 && !isWordFind) {
+        while (nbFail < 10 && !wordIsFind) {
             newUserLetter();
         }
         // word fine
-        if (isWordFind) {
+        if (wordIsFind) {
             System.out.println("Congratz ! You win");
         } else {
             displayInfo();
             System.out.println("Harghh... you loose...");
         }
-        return isWordFind;
+        return wordIsFind;
     }
 
     /**
-     * init variables and manage each stage
+     * init variables and manage each stage.
      *
      * @param difficulty  difficulty choosen by user
      * @param wordManager how words are manage
      */
     public void initGameValues(EnumDifficulty difficulty, WordManager wordManager) {
         wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
-        isWordFind = false;
+        wordIsFind = false;
         nbFail = 0;
         nbTry = 0;
         generateCurrentWordState();
     }
 
     /**
-     * New stage, user enter a new letter
+     * New stage, user enter a new letter.
      */
     private void newUserLetter() {
         nbTry++;
@@ -94,7 +95,7 @@ public class Pendu {
     }
 
     /**
-     * This method check if a letter is present in the word and update the current word state if success
+     * This method check if a letter is present in the word and update the current word state if success.
      *
      * @param readCharacter character input by user
      */
@@ -105,7 +106,7 @@ public class Pendu {
                 currentWordState = currentWordState.substring(0, i) + readCharacter + currentWordState.substring(i + 1);
             }
             // if word not contains '=' anymore, user won
-            isWordFind = !currentWordState.contains(CHARACTER_EMPTY_LETTER);
+            wordIsFind = !currentWordState.contains(CHARACTER_EMPTY_LETTER);
         } else {
             nbFail++;
         }
@@ -113,7 +114,7 @@ public class Pendu {
     }
 
     /**
-     * Display game advancement info (only text here)
+     * Display game advancement info (only text here).
      */
     public void displayInfo() {
         System.out.println("\nWord to fine : " + currentWordState);
@@ -131,15 +132,27 @@ public class Pendu {
         }
     }
 
+    /**
+     * Get the word to find.
+     * @return String
+     */
     public String getWordTofind() {
         return wordTofind;
     }
 
+    /**
+     * Get the current state of the word.
+     * @return String
+     */
     public String getCurrentWordState() {
         return currentWordState;
     }
 
-    public boolean isWordFind() {
-        return isWordFind;
+    /**
+     * Returns true if the word is find.
+     * @return boolean
+     */
+    public boolean isWordIsFind() {
+        return wordIsFind;
     }
 }

@@ -1,33 +1,33 @@
 package utils.enums;
 
 /**
- * Enum to manage difficulty
+ * Enum to manage difficulty.
  */
 public enum EnumDifficulty {
     /**
-     * EASY Mode
+     * EASY Mode.
      */
     EASY(1, 3, 4),
     /**
-     * MEDIUM mode
+     * MEDIUM mode.
      */
     MEDIUM(2, 5, Integer.MAX_VALUE);
 
     /**
-     * Difficulty value
+     * Difficulty value.
      */
     private int difficultyValue;
     /**
-     * Min size of a word
+     * Min size of a word.
      */
     private int minSize;
     /**
-     * MAx size of a word
+     * MAx size of a word.
      */
     private int maxSize;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param difficultyValue int val of difficulty
      * @param minSize         min size of a word
@@ -39,6 +39,11 @@ public enum EnumDifficulty {
         this.maxSize = maxSize;
     }
 
+    /**
+     * Get the difficulty of the Game.
+     * @param value Enum Id Value
+     * @return EnumDifficulty
+     */
     public static EnumDifficulty getEnumByValue(int value) {
         EnumDifficulty result = null;
         switch (value) {
@@ -54,14 +59,26 @@ public enum EnumDifficulty {
         return result;
     }
 
+    /**
+     * Get the Value of the difficulty.
+     * @return int
+     */
     public int getDifficultyValue() {
         return difficultyValue;
     }
 
+    /**
+     * Get the minimum size.
+     * @return int
+     */
     public int getMinSize() {
         return minSize;
     }
 
+    /**
+     * Get the maximum size.
+     * @return int
+     */
     public int getMaxSize() {
         return maxSize;
     }
