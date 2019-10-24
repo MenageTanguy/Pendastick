@@ -11,7 +11,11 @@ public enum EnumDifficulty {
     /**
      * MEDIUM mode.
      */
-    MEDIUM(2, 5, Integer.MAX_VALUE);
+    MEDIUM(2, 5, Integer.MAX_VALUE),
+    /**
+     * HARD mode.
+     */
+    HARD(3, 3, Integer.MAX_VALUE);
 
     /**
      * Difficulty value.
@@ -41,6 +45,7 @@ public enum EnumDifficulty {
 
     /**
      * Get the difficulty of the Game.
+     *
      * @param value Enum Id Value
      * @return EnumDifficulty
      */
@@ -53,6 +58,9 @@ public enum EnumDifficulty {
             case 2:
                 result = MEDIUM;
                 break;
+            case 3:
+                result = HARD;
+                break;
             default:
                 break;
         }
@@ -61,6 +69,7 @@ public enum EnumDifficulty {
 
     /**
      * Get the Value of the difficulty.
+     *
      * @return int
      */
     public int getDifficultyValue() {
@@ -69,6 +78,7 @@ public enum EnumDifficulty {
 
     /**
      * Get the minimum size.
+     *
      * @return int
      */
     public int getMinSize() {
@@ -77,6 +87,7 @@ public enum EnumDifficulty {
 
     /**
      * Get the maximum size.
+     *
      * @return int
      */
     public int getMaxSize() {

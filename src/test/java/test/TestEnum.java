@@ -24,9 +24,15 @@ public class TestEnum {
         Assert.assertEquals(EnumDifficulty.MEDIUM.getMinSize(), 5);
         Assert.assertEquals(EnumDifficulty.MEDIUM.getMaxSize(), Integer.MAX_VALUE);
 
+        System.out.println("testEnumDifficultyValue HARD");
+        Assert.assertEquals(EnumDifficulty.HARD.getDifficultyValue(), 3);
+        Assert.assertEquals(EnumDifficulty.HARD.getMinSize(), 3);
+        Assert.assertEquals(EnumDifficulty.HARD.getMaxSize(), Integer.MAX_VALUE);
+
         System.out.println("testEnumDifficultyValue getEnumByValue");
         Assert.assertEquals(EnumDifficulty.EASY, EnumDifficulty.getEnumByValue(1));
         Assert.assertEquals(EnumDifficulty.MEDIUM, EnumDifficulty.getEnumByValue(2));
+        Assert.assertEquals(EnumDifficulty.HARD, EnumDifficulty.getEnumByValue(3));
         Assert.assertNull(EnumDifficulty.getEnumByValue(-54));
     }
 

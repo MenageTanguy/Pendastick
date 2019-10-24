@@ -69,20 +69,36 @@ public class Application {
      * @param wordManager wordManager used
      */
     private EnumDifficulty askDifficulty(WordManager wordManager) {
+        boolean saisiInvalid = true;
+        boolean normalMode = true;
         EnumDifficulty resultValue = null;
-        if (wordManager.getWordArrayLevel01().isEmpty() && wordManager.getWordArrayLevel02().isEmpty()) {
-            System.out.println("No word find !");
-        } else if (wordManager.getWordArrayLevel01().isEmpty() && !wordManager.getWordArrayLevel02().isEmpty()) {
-            System.out.println("Only Normal mode is available, let's go !");
-            resultValue = EnumDifficulty.MEDIUM;
-        } else if (!wordManager.getWordArrayLevel01().isEmpty() && wordManager.getWordArrayLevel02().isEmpty()) {
-            System.out.println("Only Normal mode is available, let's go !");
-            resultValue = EnumDifficulty.EASY;
+        String input;
+        while (saisiInvalid) {
+            input = KeyboardManager.instance.readCharacter("Do you want to play NORMAL or HARD MODE ? (N/H)");
+            if (KeyboardManager.instance.isSame(input, "N")) {
+                saisiInvalid = false;
+            } else if (KeyboardManager.instance.isSame(input, "H")) {
+                saisiInvalid = false;
+                normalMode = false;
+            }
+        }
+        if (normalMode) {
+            if (wordManager.getWordArrayLevel01().isEmpty() && wordManager.getWordArrayLevel02().isEmpty()) {
+                System.out.println("No word find !");
+            } else if (wordManager.getWordArrayLevel01().isEmpty() && !wordManager.getWordArrayLevel02().isEmpty()) {
+                System.out.println("Only Normal mode is available, let's go !");
+                resultValue = EnumDifficulty.MEDIUM;
+            } else if (!wordManager.getWordArrayLevel01().isEmpty() && wordManager.getWordArrayLevel02().isEmpty()) {
+                System.out.println("Only Normal mode is available, let's go !");
+                resultValue = EnumDifficulty.EASY;
+            } else {
+                resultValue = EnumDifficulty.getEnumByValue(KeyboardManager.instance.readNumber(
+                        "Choose difficulty :\n"
+                                + " 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)",
+                        EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue()));
+            }
         } else {
-            resultValue = EnumDifficulty.getEnumByValue(KeyboardManager.instance.readNumber(
-                    "Choose difficulty :\n"
-                            + " 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)",
-                    EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue()));
+            resultValue = EnumDifficulty.HARD;
         }
         return resultValue;
     }

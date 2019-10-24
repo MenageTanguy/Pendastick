@@ -24,7 +24,7 @@ public class TestPendu extends TestUtils {
         checkSizeWordTest(wordTofine, EnumDifficulty.EASY.getMinSize(), EnumDifficulty.EASY.getMaxSize());
 
         // Check word display mask is correct ( = same size as wordTOfine + only "=" characters)
-        String wordDisplay = Pendu.instance.getCurrentWordState();
+        String wordDisplay = Pendu.instance.getGameEngine().getCurrentWordState();
         checkSizeWordTest(wordDisplay, EnumDifficulty.EASY.getMinSize(), EnumDifficulty.EASY.getMaxSize());
         Assert.assertEquals(wordTofine.length(), wordDisplay.length());
         Assert.assertEquals(wordDisplay.length(), wordDisplay.length() - (wordDisplay.replace("=", "")).length());
@@ -45,7 +45,7 @@ public class TestPendu extends TestUtils {
         checkSizeWordTest(wordTofine, EnumDifficulty.MEDIUM.getMinSize(), EnumDifficulty.MEDIUM.getMaxSize());
 
         // Check word display mask is correct ( = same size as wordTOfine + only "=" characters)
-        String wordDisplay = Pendu.instance.getCurrentWordState();
+        String wordDisplay = Pendu.instance.getGameEngine().getCurrentWordState();
         checkSizeWordTest(wordDisplay, EnumDifficulty.MEDIUM.getMinSize(), EnumDifficulty.MEDIUM.getMaxSize());
         Assert.assertEquals(wordTofine.length(), wordDisplay.length());
         Assert.assertEquals(wordDisplay.length(), wordDisplay.length() - (wordDisplay.replace("=", "")).length());
@@ -66,7 +66,7 @@ public class TestPendu extends TestUtils {
         checkSizeWordTest(wordTofine, EnumDifficulty.EASY.getMinSize(), EnumDifficulty.EASY.getMaxSize());
 
         // Check word display mask is correct ( = same size as wordTOfine + only "=" characters)
-        String wordDisplay = Pendu.instance.getCurrentWordState();
+        String wordDisplay = Pendu.instance.getGameEngine().getCurrentWordState();
         checkSizeWordTest(wordDisplay, EnumDifficulty.EASY.getMinSize(), EnumDifficulty.EASY.getMaxSize());
         Assert.assertEquals(wordTofine.length(), wordDisplay.length());
         Assert.assertEquals(wordDisplay.length(), wordDisplay.length() - (wordDisplay.replace("=", "")).length());
@@ -87,7 +87,7 @@ public class TestPendu extends TestUtils {
         checkSizeWordTest(wordTofine, EnumDifficulty.MEDIUM.getMinSize(), EnumDifficulty.MEDIUM.getMaxSize());
 
         // Check word display mask is correct ( = same size as wordTOfine + only "=" characters)
-        String wordDisplay = Pendu.instance.getCurrentWordState();
+        String wordDisplay = Pendu.instance.getGameEngine().getCurrentWordState();
         checkSizeWordTest(wordDisplay, EnumDifficulty.MEDIUM.getMinSize(), EnumDifficulty.MEDIUM.getMaxSize());
         Assert.assertEquals(wordTofine.length(), wordDisplay.length());
         Assert.assertEquals(wordDisplay.length(), wordDisplay.length() - (wordDisplay.replace("=", "")).length());
@@ -102,18 +102,18 @@ public class TestPendu extends TestUtils {
         System.out.println("testAddLetterAndSuccessWordEasy --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
-        Pendu.instance.displayInfo();
+        Pendu.instance.getGameEngine().displayInfo();
 
         // Add 3 possible false letters 'W' 'Z' 'Y'
-        Pendu.instance.checkLetter("W");
-        Pendu.instance.checkLetter("Z");
-        Pendu.instance.checkLetter("Y");
+        Pendu.instance.getGameEngine().checkLetter("W");
+        Pendu.instance.getGameEngine().checkLetter("Z");
+        Pendu.instance.getGameEngine().checkLetter("Y");
         // Add all good letters
         char[] array = Pendu.instance.getWordTofind().toCharArray();
         for (char c : array) {
-            Pendu.instance.checkLetter("" + c);
+            Pendu.instance.getGameEngine().checkLetter("" + c);
         }
-        Assert.assertTrue(Pendu.instance.isWordIsFind());
+        Assert.assertTrue(Pendu.instance.getGameEngine().isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertTrue(Pendu.instance.startGame());
     }
@@ -127,18 +127,18 @@ public class TestPendu extends TestUtils {
         System.out.println("testAddLetterAndSuccessWordMedium --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager);
-        Pendu.instance.displayInfo();
+        Pendu.instance.getGameEngine().displayInfo();
 
         // Add 3 possible false letters 'W' 'Z' 'Y'
-        Pendu.instance.checkLetter("W");
-        Pendu.instance.checkLetter("Z");
-        Pendu.instance.checkLetter("Y");
+        Pendu.instance.getGameEngine().checkLetter("W");
+        Pendu.instance.getGameEngine().checkLetter("Z");
+        Pendu.instance.getGameEngine().checkLetter("Y");
         // Add all good letters
         char[] array = Pendu.instance.getWordTofind().toCharArray();
         for (char c : array) {
-            Pendu.instance.checkLetter("" + c);
+            Pendu.instance.getGameEngine().checkLetter("" + c);
         }
-        Assert.assertTrue(Pendu.instance.isWordIsFind());
+        Assert.assertTrue(Pendu.instance.getGameEngine().isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertTrue(Pendu.instance.startGame());
     }
@@ -153,18 +153,18 @@ public class TestPendu extends TestUtils {
         System.out.println("testAddLetterAndFailWordEasy --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
-        Pendu.instance.displayInfo();
+        Pendu.instance.getGameEngine().displayInfo();
 
 
         // Add 4 possible false letters 'W' 'Z' 'Y' 'X' 'V'
         for (int i = 0; i < 5; i++) {
-            Pendu.instance.checkLetter("W");
-            Pendu.instance.checkLetter("Z");
-            Pendu.instance.checkLetter("Y");
-            Pendu.instance.checkLetter("X");
-            Pendu.instance.checkLetter("V");
+            Pendu.instance.getGameEngine().checkLetter("W");
+            Pendu.instance.getGameEngine().checkLetter("Z");
+            Pendu.instance.getGameEngine().checkLetter("Y");
+            Pendu.instance.getGameEngine().checkLetter("X");
+            Pendu.instance.getGameEngine().checkLetter("V");
         }
-        Assert.assertFalse(Pendu.instance.isWordIsFind());
+        Assert.assertFalse(Pendu.instance.getGameEngine().isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertFalse(Pendu.instance.startGame());
     }
@@ -178,17 +178,17 @@ public class TestPendu extends TestUtils {
         System.out.println("testAddLetterAndFailWordMedium --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
         Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
-        Pendu.instance.displayInfo();
+        Pendu.instance.getGameEngine().displayInfo();
 
         // Add 4 possible false letters 'W' 'Z' 'Y' 'X' 'V'
         for (int i = 0; i < 5; i++) {
-            Pendu.instance.checkLetter("W");
-            Pendu.instance.checkLetter("Z");
-            Pendu.instance.checkLetter("Y");
-            Pendu.instance.checkLetter("X");
-            Pendu.instance.checkLetter("V");
+            Pendu.instance.getGameEngine().checkLetter("W");
+            Pendu.instance.getGameEngine().checkLetter("Z");
+            Pendu.instance.getGameEngine().checkLetter("Y");
+            Pendu.instance.getGameEngine().checkLetter("X");
+            Pendu.instance.getGameEngine().checkLetter("V");
         }
-        Assert.assertFalse(Pendu.instance.isWordIsFind());
+        Assert.assertFalse(Pendu.instance.getGameEngine().isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertFalse(Pendu.instance.startGame());
     }
