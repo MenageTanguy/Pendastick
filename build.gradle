@@ -6,8 +6,8 @@ plugins {
     id 'jacoco'
     id 'checkstyle'
     id "org.myire.quill.cpd" version "2.1"
-    id "com.github.spotbugs" version "2.0.0"
-
+    id "com.github.spotbugs" version "2.0.0
+    id 'jdepend'
 }
 
 repositories {
@@ -59,6 +59,7 @@ tasks.withType(Checkstyle) {
         html.enabled true
     }
 }
+
 spotbugs{
     ignoreFailures = true
     reportsDir = file("build/reports/spotbug")
@@ -70,5 +71,17 @@ spotbugs{
 }
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
-    // configure automatically generated tasks
+}
+
+jdepend{
+    reportsDir = file("build/reports/jdepend")
+    toolVersion = "2.9.1"
+    ignoreFailures = true
+    sourceSets {
+        main{
+            java{
+
+            }
+        }
+    }
 }
