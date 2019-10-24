@@ -5,6 +5,8 @@ import utils.KeyboardManager;
 import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 
+import java.io.ByteArrayInputStream;
+
 abstract class TestUtils {
 
     /**
@@ -59,5 +61,4 @@ abstract class TestUtils {
         System.out.println("Word : " + randomWordForDifficulty + "\nSize = " + randomWordForDifficulty.length() + "\n");
         Assert.assertTrue("Word " + randomWordForDifficulty + " have not expected size ! ", isGoodSize);
     }
-
 }

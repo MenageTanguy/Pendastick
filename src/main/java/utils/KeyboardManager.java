@@ -1,6 +1,9 @@
 package utils;
 
+import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.Collator;
 import java.util.Locale;
@@ -42,9 +45,9 @@ public class KeyboardManager {
      * @return true if valid path
      */
     private static boolean isValidPath(String path) {
-        boolean valid = true;
+        boolean valid;
         try {
-            Paths.get(path);
+            valid = Files.exists(Paths.get(path));
         } catch (InvalidPathException | NullPointerException ex) {
             valid = false;
         }
