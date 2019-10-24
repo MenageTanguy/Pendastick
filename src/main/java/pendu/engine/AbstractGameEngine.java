@@ -9,37 +9,37 @@ public abstract class AbstractGameEngine implements GameEngine {
     /**
      * Character used for empty letter space.
      */
-    static final String CHARACTER_EMPTY_LETTER = "=";
+    protected static final String CHARACTER_EMPTY_LETTER = "=";
 
     /**
      * Word to find.
      */
-    String wordTofind;
+    protected String wordTofind;
 
     /**
      * Current word display.
      */
-    String currentWordState;
+    protected String currentWordState;
 
     /**
      * Current nb of try.
      */
-    int nbTry;
+    protected int nbTry;
 
     /**
      * Current nb of fails.
      */
-    int nbFail;
+    protected int nbFail;
 
     /**
      * If word is find = true.
      */
-    boolean wordIsFind;
+    protected boolean wordIsFind;
 
     /**
      * nb Fail authorized before lose.
      */
-    int nbFailAuthorized;
+    protected int nbFailAuthorized;
 
     AbstractGameEngine(String wordTofind) {
         this.wordTofind = wordTofind;
@@ -90,6 +90,6 @@ public abstract class AbstractGameEngine implements GameEngine {
     }
 
 
-    abstract void init();
+    protected abstract void init();
 
 }
