@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Generate Words list using file
  */
-class WordManagerExternal extends AbstractWordManagerBase {
+class WordManagerExternal extends AbstractWordManager {
 
     /**
      * Instance of WordManager for external files

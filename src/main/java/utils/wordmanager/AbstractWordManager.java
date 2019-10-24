@@ -1,5 +1,7 @@
 package utils.wordmanager;
 
+import utils.enums.EnumDifficulty;
+
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Random;
@@ -7,7 +9,7 @@ import java.util.Random;
 /**
  * Abstract class for WordManager
  */
-public abstract class AbstractWordManagerBase implements WordManager {
+public abstract class AbstractWordManager implements WordManager {
 
     /**
      * Word array for difficulty one
@@ -19,14 +21,14 @@ public abstract class AbstractWordManagerBase implements WordManager {
      */
     protected ArrayList<String> wordArrayLevel02;
 
-    public String getRandomWordForDifficulty(int difficulty) {
+    public String getRandomWordForDifficulty(EnumDifficulty difficulty) {
         Random rand = new Random();
         String upperCaseWordToRet;
         switch (difficulty) {
-            case 1:
+            case EASY:
                 upperCaseWordToRet = wordArrayLevel01.get(rand.nextInt(wordArrayLevel01.size()));
                 break;
-            case 2:
+            case MEDIUM:
             default:
                 upperCaseWordToRet = wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
                 break;

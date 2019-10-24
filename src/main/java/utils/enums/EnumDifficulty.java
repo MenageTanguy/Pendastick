@@ -39,6 +39,19 @@ public enum EnumDifficulty {
         this.maxSize = maxSize;
     }
 
+    public static EnumDifficulty getEnumByValue(int value) {
+        EnumDifficulty result = null;
+        switch (value) {
+            case 1:
+                result = EASY;
+                break;
+            case 2:
+                result = MEDIUM;
+                break;
+        }
+        return result;
+    }
+
     public int getDifficultyValue() {
         return difficultyValue;
     }

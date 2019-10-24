@@ -11,8 +11,6 @@ import utils.wordmanager.WordManagerFactory;
  */
 public class MainGame {
 
-    private static final int ERROR_NO_WORDS = 0;
-
     /**
      * State of game (is a game running ? )
      */
@@ -43,9 +41,10 @@ public class MainGame {
             }
             if (gameRunning) {
                 WordManager wordManager = askWordDictionnary();
-                int difficulty = askDifficulty(wordManager);
-                if (difficulty != ERROR_NO_WORDS) {
-                    Pendu.instance.startGame(difficulty, wordManager);
+                EnumDifficulty difficulty = askDifficulty(wordManager);
+                if (difficulty != null) {
+                    Pendu.instance.initGameValues(difficulty, wordManager);
+                    Pendu.instance.startGame();
                 }
                 gameRunning = false;
             }
@@ -78,20 +77,20 @@ public class MainGame {
      *
      * @param wordManager wordManager used
      */
-    private static int askDifficulty(WordManager wordManager) {
-        int resultValue = 0;
+    private static EnumDifficulty askDifficulty(WordManager wordManager) {
+        EnumDifficulty resultValue = null;
         if (wordManager.getWordArrayLevel01().isEmpty() && wordManager.getWordArrayLevel02().isEmpty()) {
             System.out.println("No word find !");
         } else if (wordManager.getWordArrayLevel01().isEmpty() && !wordManager.getWordArrayLevel02().isEmpty()) {
-            resultValue = KeyboardManager.instance.readNumber("Choose difficulty :\n" + "2 - Normal (5 or more chara" +
-                    "cters)", EnumDifficulty.MEDIUM.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue());
+            System.out.println("Only Normal mode is available, let's go !");
+            resultValue = EnumDifficulty.MEDIUM;
         } else if (!wordManager.getWordArrayLevel01().isEmpty() && wordManager.getWordArrayLevel02().isEmpty()) {
-            resultValue = KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n "
-                    , EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.EASY.getDifficultyValue());
+            System.out.println("Only Normal mode is available, let's go !");
+            resultValue = EnumDifficulty.EASY;
         } else {
-            resultValue = KeyboardManager.instance.readNumber("Choose difficulty :\n 1 - Easy (3 or 4 characters)\n " +
-                            "2 - Normal (5 or more characters)",
-                    EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue());
+            resultValue = EnumDifficulty.getEnumByValue(KeyboardManager.instance.readNumber("Choose difficulty :\n" +
+                            " 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)",
+                    EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue()));
         }
         return resultValue;
     }
@@ -103,7 +102,8 @@ public class MainGame {
     private static WordManager askWordDictionnary() {
         int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - " +
                 "Internal (Program dictionnary)\n 2 - Custom (Use your own file)", 1, 2);
-        return WordManagerFactory.getInstance().getWordManager(dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue(), askForPath(dictionnaryChoice));
+        return WordManagerFactory.getInstance().getWordManager(
+                dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue(), askForPath(dictionnaryChoice));
 
     }
 
