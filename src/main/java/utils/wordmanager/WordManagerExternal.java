@@ -39,7 +39,7 @@ class WordManagerExternal extends AbstractWordManager {
      *
      * @param wordList list of word
      */
-    private void addWordIntoGoodList(ArrayList<String> wordList) {
+    private void addWordIntoGoodList(List<String> wordList) {
         for (String word : wordList) {
             word = word.trim().toUpperCase(Locale.getDefault());
             if (!word.matches("[a-zA-Z]+")) {
