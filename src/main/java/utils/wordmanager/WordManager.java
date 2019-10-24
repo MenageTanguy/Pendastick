@@ -1,5 +1,7 @@
 package utils.wordmanager;
 
+import utils.enums.EnumDifficulty;
+
 import java.util.ArrayList;
 
 /**
@@ -13,7 +15,7 @@ public interface WordManager {
      * @param difficulty difficulty choosen
      * @return a random word for this difficulty
      */
-    String getRandomWordForDifficulty(int difficulty);
+    String getRandomWordForDifficulty(EnumDifficulty difficulty);
 
     /**
      * Get list for word difficulty 1

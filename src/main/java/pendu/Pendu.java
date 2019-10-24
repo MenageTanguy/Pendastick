@@ -2,6 +2,7 @@ package pendu;
 
 import utils.DrawManager;
 import utils.KeyboardManager;
+import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 
 import java.util.Locale;
@@ -53,18 +54,8 @@ public class Pendu {
 
     /**
      * Main game method
-     * init variables and manage each stage
-     *
-     * @param difficulty  difficulty choosen by user
-     * @param wordManager how words are manage
      */
-    public void startGame(int difficulty, WordManager wordManager) {
-        wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
-        System.out.println("Word to find : " + wordTofind);
-        isWordFind = false;
-        nbFail = 0;
-        nbTry = 0;
-        generateCurrentWordState();
+    public boolean startGame() {
         // Game running
         while (nbFail < 10 && !isWordFind) {
             newUserLetter();
@@ -76,6 +67,21 @@ public class Pendu {
             displayInfo();
             System.out.println("Harghh... you loose...");
         }
+        return isWordFind;
+    }
+
+    /**
+     * init variables and manage each stage
+     *
+     * @param difficulty  difficulty choosen by user
+     * @param wordManager how words are manage
+     */
+    public void initGameValues(EnumDifficulty difficulty, WordManager wordManager) {
+        wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
+        isWordFind = false;
+        nbFail = 0;
+        nbTry = 0;
+        generateCurrentWordState();
     }
 
     /**
@@ -123,5 +129,13 @@ public class Pendu {
         for (int i = 0; i < wordTofind.length(); i++) {
             currentWordState += CHARACTER_EMPTY_LETTER;
         }
+    }
+
+    public String getWordTofind() {
+        return wordTofind;
+    }
+
+    public String getCurrentWordState() {
+        return currentWordState;
     }
 }

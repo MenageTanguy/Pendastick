@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Generate words using predifine lists
  */
-class WordManagerInternal extends AbstractWordManagerBase {
+class WordManagerInternal extends AbstractWordManager {
 
     /**
      * Create lists of internals words
