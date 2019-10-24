@@ -113,7 +113,7 @@ public class TestPendu extends TestUtils {
         for (char c : array) {
             Pendu.instance.checkLetter("" + c);
         }
-        Assert.assertTrue(Pendu.instance.isWordFind());
+        Assert.assertTrue(Pendu.instance.isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertTrue(Pendu.instance.startGame());
     }
@@ -138,7 +138,7 @@ public class TestPendu extends TestUtils {
         for (char c : array) {
             Pendu.instance.checkLetter("" + c);
         }
-        Assert.assertTrue(Pendu.instance.isWordFind());
+        Assert.assertTrue(Pendu.instance.isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertTrue(Pendu.instance.startGame());
     }
@@ -164,7 +164,7 @@ public class TestPendu extends TestUtils {
             Pendu.instance.checkLetter("X");
             Pendu.instance.checkLetter("V");
         }
-        Assert.assertFalse(Pendu.instance.isWordFind());
+        Assert.assertFalse(Pendu.instance.isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertFalse(Pendu.instance.startGame());
     }
@@ -188,7 +188,7 @@ public class TestPendu extends TestUtils {
             Pendu.instance.checkLetter("X");
             Pendu.instance.checkLetter("V");
         }
-        Assert.assertFalse(Pendu.instance.isWordFind());
+        Assert.assertFalse(Pendu.instance.isWordIsFind());
         // On peut start le game on ne passera pas la loop si le mot est trouvé
         Assert.assertFalse(Pendu.instance.startGame());
     }

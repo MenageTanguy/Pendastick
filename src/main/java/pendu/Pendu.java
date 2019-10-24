@@ -44,7 +44,7 @@ public class Pendu {
     /**
      * If word is find = true
      */
-    private boolean isWordFind;
+    private boolean WordIsFind;
 
     /**
      * Private constructor
@@ -57,17 +57,17 @@ public class Pendu {
      */
     public boolean startGame() {
         // Game running
-        while (nbFail < 10 && !isWordFind) {
+        while (nbFail < 10 && !WordIsFind) {
             newUserLetter();
         }
         // word fine
-        if (isWordFind) {
+        if (WordIsFind) {
             System.out.println("Congratz ! You win");
         } else {
             displayInfo();
             System.out.println("Harghh... you loose...");
         }
-        return isWordFind;
+        return WordIsFind;
     }
 
     /**
@@ -78,7 +78,7 @@ public class Pendu {
      */
     public void initGameValues(EnumDifficulty difficulty, WordManager wordManager) {
         wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
-        isWordFind = false;
+        WordIsFind = false;
         nbFail = 0;
         nbTry = 0;
         generateCurrentWordState();
@@ -105,7 +105,7 @@ public class Pendu {
                 currentWordState = currentWordState.substring(0, i) + readCharacter + currentWordState.substring(i + 1);
             }
             // if word not contains '=' anymore, user won
-            isWordFind = !currentWordState.contains(CHARACTER_EMPTY_LETTER);
+            WordIsFind = !currentWordState.contains(CHARACTER_EMPTY_LETTER);
         } else {
             nbFail++;
         }
@@ -139,7 +139,7 @@ public class Pendu {
         return currentWordState;
     }
 
-    public boolean isWordFind() {
-        return isWordFind;
+    public boolean isWordIsFind() {
+        return WordIsFind;
     }
 }
