@@ -48,6 +48,8 @@ public enum EnumDifficulty {
             case 2:
                 result = MEDIUM;
                 break;
+            default:
+                break;
         }
         return result;
     }

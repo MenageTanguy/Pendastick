@@ -9,7 +9,6 @@ public class WordManagerFactory {
      * factory instance
      */
     private static WordManagerFactory instance = new WordManagerFactory();
-    ;
 
     /**
      * Singleton
