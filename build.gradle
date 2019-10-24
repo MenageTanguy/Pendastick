@@ -6,6 +6,8 @@ plugins {
     id 'jacoco'
     id 'checkstyle'
     id "org.myire.quill.cpd" version "2.1"
+    id "com.github.spotbugs" version "2.0.0"
+    id 'jdepend'
 }
 
 repositories {
@@ -18,6 +20,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
     testImplementation 'junit:junit:4.12'
+    spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
 }
 
 pmd {
@@ -56,3 +59,30 @@ tasks.withType(Checkstyle) {
         html.enabled true
     }
 }
+
+spotbugs{
+    ignoreFailures = true
+    reportsDir = file("build/reports/spotbug")
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java']
+        }
+    }
+}
+
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+}
+
+jdepend{
+    toolVersion = "2.9.1"
+    ignoreFailures = true
+    jdependTest.enabled = false
+    sourceSets {
+        main{
+            java{
+
+            }
+        }
+    }
+}
+
