@@ -20,6 +20,7 @@ public class TestKeyboard extends TestUtils {
     }
 
     @Test
+    @Ignore
     public void testReadCharacterKeyboard() {
         enter("a\nb\ntest\ni\n1\nj\n \no\n");
         Assert.assertEquals("a", KeyboardManager.instance.readCharacter("test keyboard a"));
