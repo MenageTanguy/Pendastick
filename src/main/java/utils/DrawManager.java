@@ -6,6 +6,9 @@ package utils;
 public class DrawManager {
 
     private static final String TOP_BAR = "     _____________\n";
+    private static final String SECOND_BAR = "    | /         |\n";
+    private static final String THIRD_BAR = "    |/          |\n";
+    private static final String HEAD = "    |           O\n";
     private static final String COLUMN = "    |\n";
     private static final String BASE = "  __|________";
 
@@ -40,8 +43,8 @@ public class DrawManager {
             + COLUMN
             + BASE;
     public static final String PENDU_STATE_5 = TOP_BAR
-            + "    | /         |\n"
-            + "    |/          |\n"
+            + SECOND_BAR
+            + THIRD_BAR
             + COLUMN
             + COLUMN
             + COLUMN
@@ -49,45 +52,45 @@ public class DrawManager {
             + COLUMN
             + BASE;
     public static final String PENDU_STATE_6 = TOP_BAR
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + COLUMN
             + COLUMN
             + COLUMN
             + COLUMN
             + BASE;
     public static final String PENDU_STATE_7 = TOP_BAR
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |           |\n"
             + COLUMN
             + COLUMN
             + COLUMN
             + BASE;
     public static final String PENDU_STATE_8 = TOP_BAR
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |          /|  \n"
             + COLUMN
             + COLUMN
             + COLUMN
             + BASE;
     public static final String PENDU_STATE_9 = TOP_BAR
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |          /|\\ \n"
             + COLUMN
             + COLUMN
             + COLUMN
             + BASE;
     public static final String PENDU_STATE_10 = TOP_BAR
-            + "    | /         |\n"
-            + "    |/          |\n"
-            + "    |           O\n"
+            + SECOND_BAR
+            + THIRD_BAR
+            + HEAD
             + "    |          /|\\ \n"
             + "    |          / \\ \n"
             + COLUMN

@@ -105,9 +105,9 @@ public class KeyboardManager {
      * @return true if same
      */
     public boolean isSame(String word1, String word2) {
-        Collator insenstiveStringComparator = Collator.getInstance();
-        insenstiveStringComparator.setStrength(Collator.PRIMARY);
-        return insenstiveStringComparator.compare(
+        Collator insenstiveComparator = Collator.getInstance();
+        insenstiveComparator.setStrength(Collator.PRIMARY);
+        return insenstiveComparator.compare(
                 word1.toLowerCase(Locale.getDefault()),
                 word2.toLowerCase(Locale.getDefault())) == 0;
     }

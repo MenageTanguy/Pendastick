@@ -1,5 +1,7 @@
 package utils.wordmanager;
 
+import utils.enums.EnumDifficulty;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -30,7 +32,7 @@ class WordManagerExternal extends AbstractWordManager {
             inputList = bufferedReader.lines().collect(Collectors.toList());
             addWordIntoGoodList((ArrayList<String>) inputList);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(e.toString());
         }
     }
 
@@ -46,10 +48,10 @@ class WordManagerExternal extends AbstractWordManager {
                 continue;
             }
             // 1 & 2 chars words are ignored
-            if (word.length() > 2) {
+            if (word.length() >= EnumDifficulty.EASY.getMinSize()) {
                 System.out.println("Word to add : " + word);
                 // Add to list 1
-                if (word.length() < 5) {
+                if (word.length() < EnumDifficulty.MEDIUM.getMinSize()) {
                     wordArrayLevel01.add(word.toUpperCase(Locale.getDefault()));
                 } else {
                     wordArrayLevel02.add(word.toUpperCase(Locale.getDefault()));

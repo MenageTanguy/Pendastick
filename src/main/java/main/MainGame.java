@@ -14,7 +14,7 @@ public class MainGame {
     /**
      * State of game (is a game running ? )
      */
-    private static boolean gameRunning = false;
+    private static boolean gameRunning;
     /**
      * State of program, if false, program terminates
      */
