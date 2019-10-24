@@ -1,6 +1,7 @@
 package test;
 
 import org.junit.Assert;
+import utils.KeyboardManager;
 import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 
