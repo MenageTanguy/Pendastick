@@ -98,7 +98,7 @@ public class Pendu {
      *
      * @param readCharacter character input by user
      */
-    private void checkLetter(String readCharacter) {
+    public void checkLetter(String readCharacter) {
         // IF letter is in the word
         if (wordTofind.contains(readCharacter)) {
             for (int i = -1; (i = wordTofind.indexOf(readCharacter, i + 1)) != -1; i++) {
@@ -115,7 +115,7 @@ public class Pendu {
     /**
      * Display game advancement info (only text here)
      */
-    private void displayInfo() {
+    public void displayInfo() {
         System.out.println("\nWord to fine : " + currentWordState);
         System.out.println("Try number : " + nbTry + ", fails : " + nbFail);
         System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail));
@@ -137,5 +137,9 @@ public class Pendu {
 
     public String getCurrentWordState() {
         return currentWordState;
+    }
+
+    public boolean isWordFind() {
+        return isWordFind;
     }
 }

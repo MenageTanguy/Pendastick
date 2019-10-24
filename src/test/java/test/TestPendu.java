@@ -93,4 +93,103 @@ public class TestPendu extends TestUtils {
         Assert.assertEquals(wordDisplay.length(), wordDisplay.length() - (wordDisplay.replace("=", "")).length());
     }
 
+    /**
+     * Init game, add some false letters + find the word
+     * Easy difficulty
+     */
+    @Test
+    public void testAddLetterAndSuccessWordEasy() {
+        System.out.println("testAddLetterAndSuccessWordEasy --> init and add letter");
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.displayInfo();
+
+        // Add 3 possible false letters 'W' 'Z' 'Y'
+        Pendu.instance.checkLetter("W");
+        Pendu.instance.checkLetter("Z");
+        Pendu.instance.checkLetter("Y");
+        // Add all good letters
+        char[] array = Pendu.instance.getWordTofind().toCharArray();
+        for (char c : array) {
+            Pendu.instance.checkLetter("" + c);
+        }
+        Assert.assertTrue(Pendu.instance.isWordFind());
+        // On peut start le game on ne passera pas la loop si le mot est trouvé
+        Assert.assertTrue(Pendu.instance.startGame());
+    }
+
+    /**
+     * Init game, add some false letters + find the word
+     * Medium difficulty
+     */
+    @Test
+    public void testAddLetterAndSuccessWordMedium() {
+        System.out.println("testAddLetterAndSuccessWordMedium --> init and add letter");
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager);
+        Pendu.instance.displayInfo();
+
+        // Add 3 possible false letters 'W' 'Z' 'Y'
+        Pendu.instance.checkLetter("W");
+        Pendu.instance.checkLetter("Z");
+        Pendu.instance.checkLetter("Y");
+        // Add all good letters
+        char[] array = Pendu.instance.getWordTofind().toCharArray();
+        for (char c : array) {
+            Pendu.instance.checkLetter("" + c);
+        }
+        Assert.assertTrue(Pendu.instance.isWordFind());
+        // On peut start le game on ne passera pas la loop si le mot est trouvé
+        Assert.assertTrue(Pendu.instance.startGame());
+    }
+
+
+    /**
+     * Init game, add false letters and check game fail
+     * Easy difficulty
+     */
+    @Test
+    public void testAddLetterAndFailWordEasy() {
+        System.out.println("testAddLetterAndFailWordEasy --> init and add letter");
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.displayInfo();
+
+
+        // Add 4 possible false letters 'W' 'Z' 'Y' 'X' 'V'
+        for (int i = 0; i < 5; i++) {
+            Pendu.instance.checkLetter("W");
+            Pendu.instance.checkLetter("Z");
+            Pendu.instance.checkLetter("Y");
+            Pendu.instance.checkLetter("X");
+            Pendu.instance.checkLetter("V");
+        }
+        Assert.assertFalse(Pendu.instance.isWordFind());
+        // On peut start le game on ne passera pas la loop si le mot est trouvé
+        Assert.assertFalse(Pendu.instance.startGame());
+    }
+
+    /**
+     * Init game, add false letters and check game fail
+     * Easy difficulty
+     */
+    @Test
+    public void testAddLetterAndFailWordMedium() {
+        System.out.println("testAddLetterAndFailWordMedium --> init and add letter");
+        WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.displayInfo();
+
+        // Add 4 possible false letters 'W' 'Z' 'Y' 'X' 'V'
+        for (int i = 0; i < 5; i++) {
+            Pendu.instance.checkLetter("W");
+            Pendu.instance.checkLetter("Z");
+            Pendu.instance.checkLetter("Y");
+            Pendu.instance.checkLetter("X");
+            Pendu.instance.checkLetter("V");
+        }
+        Assert.assertFalse(Pendu.instance.isWordFind());
+        // On peut start le game on ne passera pas la loop si le mot est trouvé
+        Assert.assertFalse(Pendu.instance.startGame());
+    }
 }
