@@ -38,8 +38,8 @@ public abstract class AbstractWordManager implements WordManager {
             case MEDIUM:
                 upperCaseWordToRet = wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
                 break;
-            default:
             case HARD:
+            default:
                 List<String> list = new ArrayList();
                 list.addAll(wordArrayLevel01);
                 list.addAll(wordArrayLevel02);

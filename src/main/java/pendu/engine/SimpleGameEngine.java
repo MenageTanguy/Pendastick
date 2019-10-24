@@ -10,7 +10,7 @@ public class SimpleGameEngine extends AbstractGameEngine {
     }
 
     @Override
-    void init() {
+    protected void init() {
         nbFail = 0;
         nbFailAuthorized = 10;
         nbTry = 0;

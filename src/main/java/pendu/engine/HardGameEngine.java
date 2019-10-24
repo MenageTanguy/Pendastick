@@ -11,7 +11,7 @@ public class HardGameEngine extends AbstractGameEngine {
     }
 
     @Override
-    void init() {
+    protected void init() {
         nbFail = 0;
         nbFailAuthorized = 20;
         nbTry = 0;
