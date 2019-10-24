@@ -1,17 +1,17 @@
 package utils.wordmanager;
 
 /**
- * Word manager factory
+ * Word manager factory.
  */
 public class WordManagerFactory {
 
     /**
-     * factory instance
+     * factory instance.
      */
     private static WordManagerFactory instance = new WordManagerFactory();
 
     /**
-     * Singleton
+     * Singleton.
      *
      * @return word manager factory
      */
@@ -20,7 +20,7 @@ public class WordManagerFactory {
     }
 
     /**
-     * Get good word manager for given paramaters
+     * Get good word manager for given paramaters.
      *
      * @param isInternal      isInternal or External
      * @param pathForExternal path if external

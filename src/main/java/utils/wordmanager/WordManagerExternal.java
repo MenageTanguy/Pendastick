@@ -12,12 +12,12 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 /**
- * Generate Words list using file
+ * Generate Words list using file.
  */
 class WordManagerExternal extends AbstractWordManager {
 
     /**
-     * Instance of WordManager for external files
+     * Instance of WordManager for external files.
      *
      * @param pathForExternal pathForParam
      */
@@ -37,7 +37,7 @@ class WordManagerExternal extends AbstractWordManager {
     }
 
     /**
-     * method to add a list of word into the good difficulty array
+     * method to add a list of word into the good difficulty array.
      *
      * @param wordList list of word
      */
