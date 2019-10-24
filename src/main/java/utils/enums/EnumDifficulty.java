@@ -7,7 +7,7 @@ public enum EnumDifficulty {
     /**
      * EASY Mode
      */
-    EASY(1, 3, 5),
+    EASY(1, 3, 4),
     /**
      * MEDIUM mode
      */
