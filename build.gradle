@@ -6,6 +6,7 @@ plugins {
     id 'jacoco'
     id 'checkstyle'
     id "org.myire.quill.cpd" version "2.1"
+    id 'jdepend'
 }
 
 repositories {
@@ -54,5 +55,18 @@ tasks.withType(Checkstyle) {
     reports {
         xml.enabled true
         html.enabled true
+    }
+}
+
+jdepend{
+    reportsDir = file("build/reports/jdepend")
+    toolVersion = "2.9.1"
+    ignoreFailures = true
+    sourceSets {
+        main{
+            java{
+
+            }
+        }
     }
 }
