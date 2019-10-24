@@ -66,17 +66,17 @@
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See http://checkstyle.sourceforge.net/config_javadoc.html#JavadocMethod -->
-        <!--module name="JavadocMethod">
+        <module name="JavadocMethod">
             <property name="scope" value="public"/>
             <property name="allowUndeclaredRTE" value="true"/>
         </module>
         <module name="JavadocMethod">
             <property name="scope" value="protected"/>
             <property name="allowUndeclaredRTE" value="true"/>
-        </module-->
+        </module>
 
         <!-- See http://checkstyle.sourceforge.net/config_javadoc.html#JavadocStyle -->
-        <!--module name="JavadocStyle">
+        <module name="JavadocStyle">
             <property name="scope" value="public"/>
             <property name="checkEmptyJavadoc" value="true"/>
             <property name="endOfSentenceFormat" value="[\.]$"/>
@@ -85,24 +85,23 @@
             <property name="scope" value="protected"/>
             <property name="checkEmptyJavadoc" value="true"/>
             <property name="endOfSentenceFormat" value="[\.]$"/>
-        </module-->
+        </module>
 
         <!-- See http://checkstyle.sourceforge.net/config_javadoc.html#JavadocType -->
-        <!--module name="JavadocType">
+        <module name="JavadocType">
             <property name="scope" value="public"/>
         </module>
         <module name="JavadocType">
             <property name="scope" value="protected"/>
-        </module-->
+        </module>
 
         <!-- See http://checkstyle.sourceforge.net/config_javadoc.html#JavadocVariable -->
-        <!--module name="JavadocVariable">
+        <module name="JavadocVariable">
             <property name="scope" value="public"/>
         </module>
         <module name="JavadocVariable">
             <property name="scope" value="protected"/>
-        </module-->
-
+        </module>
 
 
         <!-- Checks for Naming Conventions.                  -->
@@ -114,9 +113,8 @@
 
         <!-- See http://checkstyle.sourceforge.net/config_naming.html#LocalVariableName -->
         <module name="LocalVariableName">
-            <!--
-            <property name="allowOneCharVarInForLoop" value="true"/>
-            Require Release 6.12.1 -->
+            <!--<property name="allowOneCharVarInForLoop" value="true"/>
+               Require Release 6.12.1 -->
         </module>
 
         <!-- See http://checkstyle.sourceforge.net/config_naming.html#MemberName -->
