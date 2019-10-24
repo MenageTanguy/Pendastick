@@ -6,7 +6,7 @@ plugins {
     id 'jacoco'
     id 'checkstyle'
     id "org.myire.quill.cpd" version "2.1"
-    id "com.github.spotbugs" version "2.0.0
+    id "com.github.spotbugs" version "2.0.0"
     id 'jdepend'
 }
 
@@ -74,9 +74,9 @@ tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
 jdepend{
-    reportsDir = file("build/reports/jdepend")
     toolVersion = "2.9.1"
     ignoreFailures = true
+    jdependTest.enabled = false
     sourceSets {
         main{
             java{
@@ -85,3 +85,4 @@ jdepend{
         }
     }
 }
+
