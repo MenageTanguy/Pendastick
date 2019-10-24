@@ -3,12 +3,12 @@ package utils.wordmanager;
 import java.util.ArrayList;
 
 /**
- * Generate words using predifine lists
+ * Generate words using predifine lists.
  */
 class WordManagerInternal extends AbstractWordManager {
 
     /**
-     * Create lists of internals words
+     * Create lists of internals words.
      */
     WordManagerInternal() {
         super();

@@ -1,7 +1,7 @@
 package utils;
 
 /**
- * Use this class manager to draw Pendu
+ * Use this class manager to draw Pendu.
  */
 public class DrawManager {
 
@@ -12,9 +12,20 @@ public class DrawManager {
     private static final String COLUMN = "    |\n";
     private static final String BASE = "  __|________";
 
+    /**
+     *  State 0 of the Hangman.
+     */
     public static final String PENDU_STATE_0 = "\n\n\n\n\n\n\n\n\n\n";
+
+    /**
+     *  State 1 of the Hangman.
+     */
     public static final String PENDU_STATE_1 = "\n\n\n\n\n\n\n\n\n"
             + "  ___|________\n";
+
+    /**
+     *  State 2 of the Hangman.
+     */
     public static final String PENDU_STATE_2 = "\n"
             + COLUMN
             + COLUMN
@@ -24,6 +35,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 3 of the Hangman.
+     */
     public static final String PENDU_STATE_3 = TOP_BAR
             + COLUMN
             + COLUMN
@@ -33,6 +48,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 4 of the Hangman.
+     */
     public static final String PENDU_STATE_4 = TOP_BAR
             + "    | / \n"
             + "    |/ \n"
@@ -42,6 +61,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 5 of the Hangman.
+     */
     public static final String PENDU_STATE_5 = TOP_BAR
             + SECOND_BAR
             + THIRD_BAR
@@ -51,6 +74,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 6 of the Hangman.
+     */
     public static final String PENDU_STATE_6 = TOP_BAR
             + SECOND_BAR
             + THIRD_BAR
@@ -60,6 +87,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 7 of the Hangman.
+     */
     public static final String PENDU_STATE_7 = TOP_BAR
             + SECOND_BAR
             + THIRD_BAR
@@ -69,6 +100,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 8 of the Hangman.
+     */
     public static final String PENDU_STATE_8 = TOP_BAR
             + SECOND_BAR
             + THIRD_BAR
@@ -78,6 +113,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 9 of the Hangman.
+     */
     public static final String PENDU_STATE_9 = TOP_BAR
             + SECOND_BAR
             + THIRD_BAR
@@ -87,6 +126,10 @@ public class DrawManager {
             + COLUMN
             + COLUMN
             + BASE;
+
+    /**
+     *  State 10 of the Hangman.
+     */
     public static final String PENDU_STATE_10 = TOP_BAR
             + SECOND_BAR
             + THIRD_BAR
@@ -97,13 +140,16 @@ public class DrawManager {
             + COLUMN
             + BASE;
 
+    /**
+     *  Instance of the DrawManage Class.
+     */
     public static DrawManager instance = new DrawManager();
 
     private DrawManager() {
     }
 
     /**
-     * Get the good draw for a know number of fails
+     * Get the good draw for a know number of fails.
      *
      * @param nbLoose number of fails
      * @return current state of draw
