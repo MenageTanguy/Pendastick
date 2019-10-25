@@ -18,17 +18,17 @@ public class Pendu {
     /**
      * Engine to run programm
      */
-    private GameEngine gameEngine;
+    private transient GameEngine gameEngine;
 
     /**
      * Word to find.
      */
-    private String wordTofind;
+    private transient String wordTofind;
 
     /**
      * If word is find = true.
      */
-    private boolean wordIsFind;
+    private transient boolean wordIsFind;
 
     /**
      * Private constructor.

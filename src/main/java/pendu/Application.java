@@ -13,21 +13,21 @@ public class Application {
     /**
      * State of game (is a game running ?).
      */
-    private boolean gameRunning;
+    private transient boolean gameRunning;
     /**
      * State of program, if false, program terminates.
      */
-    private boolean continueGame;
+    private transient boolean continueGame;
 
     /**
      * List of state game of all players.
      */
-    private Boolean[] playersCanPlay;
+    private transient Boolean[] playersCanPlay;
 
     /**
      * List of all players name.
      */
-    private String[] playersName;
+    private transient String[] playersName;
 
     /**
      * Constructor of app and set variables.
@@ -218,10 +218,10 @@ public class Application {
      */
     private String askForPath(int dictionnaryChoice) {
         String inputPath;
-        if (dictionnaryChoice != EnumDifficulty.EASY.getDifficultyValue()) {
-            inputPath = KeyboardUtils.readPath("Please enter a valid path for your custom dictionnary");
-        } else {
+        if (dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue()) {
             inputPath = "";
+        } else {
+            inputPath = KeyboardUtils.readPath("Please enter a valid path for your custom dictionnary");
         }
         return inputPath;
     }

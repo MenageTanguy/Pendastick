@@ -15,12 +15,12 @@ public abstract class AbstractWordManager implements WordManager {
     /**
      * Word array for difficulty .
      */
-    protected List<String> wordArrayLevel01;
+    protected transient List<String> wordArrayLevel01;
 
     /**
      * Word array for difficulty two.
      */
-    protected List<String> wordArrayLevel02;
+    protected transient List<String> wordArrayLevel02;
 
     /**
      * Get a Random Word according to difficulty selected.
