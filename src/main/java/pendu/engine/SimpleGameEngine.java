@@ -2,9 +2,16 @@ package pendu.engine;
 
 import utils.DrawUtils;
 
+/**
+ * Simple game engine for EASY and NORMAL mode.
+ */
 public class SimpleGameEngine extends AbstractGameEngine {
 
-
+    /**
+     * Constructor.
+     *
+     * @param wordTofind word to find.
+     */
     SimpleGameEngine(String wordTofind) {
         super(wordTofind);
     }
@@ -16,6 +23,11 @@ public class SimpleGameEngine extends AbstractGameEngine {
         nbTry = 0;
     }
 
+    /**
+     * Check letter input.
+     *
+     * @param readCharacter character input by user
+     */
     public void checkLetter(String readCharacter) {
         // IF letter is in the word
         if (wordTofind.contains(readCharacter)) {
@@ -30,6 +42,9 @@ public class SimpleGameEngine extends AbstractGameEngine {
     }
 
 
+    /**
+     * Display some text to informe user.
+     */
     public void displayInfo() {
         System.out.println("\nWord to find : " + currentWordState);
         System.out.println("Try number : " + nbTry + ", fails : " + nbFail);
