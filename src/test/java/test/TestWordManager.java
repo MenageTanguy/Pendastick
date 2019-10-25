@@ -2,7 +2,7 @@ package test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import utils.DrawManager;
+import utils.DrawUtils;
 import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 import utils.wordmanager.WordManagerFactory;
@@ -87,17 +87,17 @@ public class TestWordManager extends TestUtils {
     @Test
     public void testPenduDrawIsGood() {
         System.out.println("testPenduDrawIsGood check if draw is good !");
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(0), DrawManager.PENDU_STATE_0);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(1), DrawManager.PENDU_STATE_1);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(2), DrawManager.PENDU_STATE_2);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(3), DrawManager.PENDU_STATE_3);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(4), DrawManager.PENDU_STATE_4);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(5), DrawManager.PENDU_STATE_5);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(6), DrawManager.PENDU_STATE_6);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(7), DrawManager.PENDU_STATE_7);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(8), DrawManager.PENDU_STATE_8);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(9), DrawManager.PENDU_STATE_9);
-        Assert.assertEquals("Draw is not good... ", DrawManager.instance.getDrawForThisLooseNumber(10), DrawManager.PENDU_STATE_10);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(0), DrawUtils.PENDU_STATE_0);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(1), DrawUtils.PENDU_STATE_1);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(2), DrawUtils.PENDU_STATE_2);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(3), DrawUtils.PENDU_STATE_3);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(4), DrawUtils.PENDU_STATE_4);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(5), DrawUtils.PENDU_STATE_5);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(6), DrawUtils.PENDU_STATE_6);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(7), DrawUtils.PENDU_STATE_7);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(8), DrawUtils.PENDU_STATE_8);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(9), DrawUtils.PENDU_STATE_9);
+        Assert.assertEquals("Draw is not good... ", DrawUtils.getDrawForThisLooseNumber(10), DrawUtils.PENDU_STATE_10);
 
     }
 

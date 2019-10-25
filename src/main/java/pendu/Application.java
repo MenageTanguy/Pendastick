@@ -1,6 +1,6 @@
 package pendu;
 
-import utils.KeyboardManager;
+import utils.KeyboardUtils;
 import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 import utils.wordmanager.WordManagerFactory;
@@ -50,11 +50,11 @@ public class Application {
         boolean saisiInvalid = true;
         String input;
         while (saisiInvalid) {
-            input = KeyboardManager.instance.readCharacter("Do you want to start a new game ? (Y/N)");
-            if (KeyboardManager.instance.isSame(input, "Y")) {
+            input = KeyboardUtils.readCharacter("Do you want to start a new game ? (Y/N)");
+            if (KeyboardUtils.isSame(input, "Y")) {
                 saisiInvalid = false;
                 gameRunning = true;
-            } else if (KeyboardManager.instance.isSame(input, "N")) {
+            } else if (KeyboardUtils.isSame(input, "N")) {
                 continueGame = false;
                 gameRunning = false;
                 saisiInvalid = false;
@@ -74,10 +74,10 @@ public class Application {
         EnumDifficulty resultValue = null;
         String input;
         while (saisiInvalid) {
-            input = KeyboardManager.instance.readCharacter("Do you want to play NORMAL or HARD MODE ? (N/H)");
-            if (KeyboardManager.instance.isSame(input, "N")) {
+            input = KeyboardUtils.readCharacter("Do you want to play NORMAL or HARD MODE ? (N/H)");
+            if (KeyboardUtils.isSame(input, "N")) {
                 saisiInvalid = false;
-            } else if (KeyboardManager.instance.isSame(input, "H")) {
+            } else if (KeyboardUtils.isSame(input, "H")) {
                 saisiInvalid = false;
                 normalMode = false;
             }
@@ -92,7 +92,7 @@ public class Application {
                 System.out.println("Only Normal mode is available, let's go !");
                 resultValue = EnumDifficulty.EASY;
             } else {
-                resultValue = EnumDifficulty.getEnumByValue(KeyboardManager.instance.readNumber(
+                resultValue = EnumDifficulty.getEnumByValue(KeyboardUtils.readNumber(
                         "Choose difficulty :\n"
                                 + " 1 - Easy (3 or 4 characters)\n 2 - Normal (5 or more characters)",
                         EnumDifficulty.EASY.getDifficultyValue(), EnumDifficulty.MEDIUM.getDifficultyValue()));
@@ -108,7 +108,7 @@ public class Application {
      * Method to ask word management to user.
      */
     private WordManager askWordDictionnary() {
-        int dictionnaryChoice = KeyboardManager.instance.readNumber("Choose word dictionnary :\n 1 - "
+        int dictionnaryChoice = KeyboardUtils.readNumber("Choose word dictionnary :\n 1 - "
                 + "Internal (Program dictionnary)\n 2 - Custom (Use your own file)", 1, 2);
         return WordManagerFactory.getInstance().getWordManager(
                 dictionnaryChoice == EnumDifficulty.EASY.getDifficultyValue(), askForPath(dictionnaryChoice));
@@ -124,7 +124,7 @@ public class Application {
     private String askForPath(int dictionnaryChoice) {
         String inputPath = "";
         if (dictionnaryChoice != EnumDifficulty.EASY.getDifficultyValue()) {
-            inputPath = KeyboardManager.instance.readPath("Please enter a valid path for your custom dictionnary");
+            inputPath = KeyboardUtils.readPath("Please enter a valid path for your custom dictionnary");
         }
         return inputPath;
     }
