@@ -50,7 +50,7 @@ public enum EnumDifficulty {
      * @return EnumDifficulty
      */
     public static EnumDifficulty getEnumByValue(int value) {
-        EnumDifficulty result = null;
+        EnumDifficulty result;
         switch (value) {
             case 1:
                 result = EASY;
@@ -62,6 +62,7 @@ public enum EnumDifficulty {
                 result = HARD;
                 break;
             default:
+                result = null;
                 break;
         }
         return result;

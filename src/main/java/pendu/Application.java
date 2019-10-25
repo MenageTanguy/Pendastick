@@ -206,12 +206,13 @@ public class Application {
      * @return valid path
      */
     private String askForPath(int dictionnaryChoice) {
-        String inputPath = "";
+        String inputPath;
         if (dictionnaryChoice != EnumDifficulty.EASY.getDifficultyValue()) {
             inputPath = KeyboardUtils.readPath("Please enter a valid path for your custom dictionnary");
+        } else {
+            inputPath = "";
         }
         return inputPath;
     }
-
 
 }
