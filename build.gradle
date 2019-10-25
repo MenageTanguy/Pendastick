@@ -73,6 +73,7 @@ spotbugs{
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
 }
 
+
 jdepend{
     toolVersion = "2.9.1"
     ignoreFailures = true

@@ -4,12 +4,14 @@ import utils.DrawManager;
 
 public class HardGameEngine extends AbstractGameEngine {
 
+    private final static int HANG_SIZE = 10;
+
     HardGameEngine(String wordTofind) {
         super(wordTofind);
     }
 
     @Override
-    void init() {
+    protected void init() {
         nbFail = 0;
         nbFailAuthorized = 20;
         nbTry = 0;
@@ -24,6 +26,7 @@ public class HardGameEngine extends AbstractGameEngine {
                 if (!currentWordState.substring(i, i + 1).contains(readCharacter)) {
                     currentWordState = currentWordState.substring(0, i) + readCharacter +
                             currentWordState.substring(i + 1);
+                    break;
                 }
             }
             // if word not contains '=' anymore, user won
@@ -36,8 +39,12 @@ public class HardGameEngine extends AbstractGameEngine {
     public void displayInfo() {
         System.out.println("\nWord to find : " + currentWordState);
         System.out.println("Try number : " + nbTry + ", fails : " + nbFail);
-        System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail));
-        System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail - 10));
+        if (nbFail > HANG_SIZE) {
+            System.out.println(DrawManager.instance.getDrawForThisLooseNumber(HANG_SIZE));
+            System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail - HANG_SIZE));
+        } else {
+            System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail));
+        }
     }
 
 }
