@@ -1,6 +1,6 @@
 package pendu.engine;
 
-import utils.KeyboardManager;
+import utils.KeyboardUtils;
 
 import java.util.Locale;
 
@@ -68,7 +68,7 @@ public abstract class AbstractGameEngine implements GameEngine {
     private void newUserLetter() {
         nbTry++;
         displayInfo();
-        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : ").toUpperCase(Locale.getDefault()));
+        checkLetter(KeyboardUtils.readCharacter("Try a letter please : ").toUpperCase(Locale.getDefault()));
     }
 
     /**

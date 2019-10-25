@@ -11,7 +11,6 @@ import utils.wordmanager.WordManager;
  */
 public class Pendu {
 
-
     /**
      * Pendu instance singleton.
      */

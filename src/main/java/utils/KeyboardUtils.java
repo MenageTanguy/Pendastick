@@ -10,7 +10,7 @@ import java.util.Scanner;
 /**
  * Tools to read and check values.
  */
-public class KeyboardManager {
+public final class KeyboardUtils {
 
     /**
      * STATIC error message display if invalid input.
@@ -22,21 +22,16 @@ public class KeyboardManager {
      */
     private static final int CHARACTER_SIZE = 1;
 
-    /**
-     * instance for keyboard management.
-     */
-    public static KeyboardManager instance = new KeyboardManager();
 
     /**
      * Scanner used to read console input
      */
-    private final Scanner scanner;
+    private static final Scanner scanner = new Scanner(System.in);
 
     /**
      * Private constructor
      */
-    private KeyboardManager() {
-        scanner = new Scanner(System.in);
+    private KeyboardUtils() {
     }
 
     /**
@@ -49,7 +44,7 @@ public class KeyboardManager {
         boolean valid;
         try {
             valid = Files.exists(Paths.get(path));
-        } catch (InvalidPathException | NullPointerException ex) {
+        } catch (InvalidPathException ex) {
             valid = false;
         }
         return valid;
@@ -61,7 +56,7 @@ public class KeyboardManager {
      * @param message message to display
      * @return string read
      */
-    private String readString(String message) {
+    private static String readString(String message) {
         String value;
         while (true) {
             System.out.println(message);
@@ -79,7 +74,7 @@ public class KeyboardManager {
      * @param message message to display
      * @return string read
      */
-    public String readCharacter(String message) {
+    public static String readCharacter(String message) {
         String input = readString(message);
         if (input.length() > CHARACTER_SIZE) {
             System.out.println("Only one character expected, please try again");
@@ -97,7 +92,7 @@ public class KeyboardManager {
      * @param name string to check
      * @return true if alphabetic letter
      */
-    private boolean isValidLetter(String name) {
+    private static boolean isValidLetter(String name) {
         return name.matches("[a-zA-Z]+");
     }
 
@@ -108,7 +103,7 @@ public class KeyboardManager {
      * @param word2 word 2 to check
      * @return true if same
      */
-    public boolean isSame(String word1, String word2) {
+    public static boolean isSame(String word1, String word2) {
         Collator insenstiveComparator = Collator.getInstance();
         insenstiveComparator.setStrength(Collator.PRIMARY);
         return insenstiveComparator.compare(
@@ -124,7 +119,7 @@ public class KeyboardManager {
      * @param max     max value expected
      * @return value if correct
      */
-    public int readNumber(String message, int min, int max) {
+    public static int readNumber(String message, int min, int max) {
         int value;
         System.out.println(message);
         String input = scanner.nextLine().trim();
@@ -144,7 +139,7 @@ public class KeyboardManager {
      * @param input string to check
      * @return true if good
      */
-    private boolean isInteger(String input) {
+    private static boolean isInteger(String input) {
         if (input.isEmpty()) {
             return false;
         }
@@ -169,7 +164,7 @@ public class KeyboardManager {
      * @param message message to display
      * @return valid path
      */
-    public String readPath(String message) {
+    public static String readPath(String message) {
         String input = readString(message);
         if (!isValidPath(input)) {
             System.out.println("This path doesn't exist, please try another one.");

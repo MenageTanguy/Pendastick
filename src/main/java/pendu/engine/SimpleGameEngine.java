@@ -1,6 +1,6 @@
 package pendu.engine;
 
-import utils.DrawManager;
+import utils.DrawUtils;
 
 public class SimpleGameEngine extends AbstractGameEngine {
 
@@ -33,7 +33,7 @@ public class SimpleGameEngine extends AbstractGameEngine {
     public void displayInfo() {
         System.out.println("\nWord to find : " + currentWordState);
         System.out.println("Try number : " + nbTry + ", fails : " + nbFail);
-        System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail));
+        System.out.println(DrawUtils.getDrawForThisLooseNumber(nbFail));
     }
 
 
