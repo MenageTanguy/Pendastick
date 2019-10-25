@@ -51,7 +51,7 @@ public final class KeyboardUtils {
     }
 
     /**
-     * Read and check String
+     * Read and check String.
      *
      * @param message message to display
      * @return string read

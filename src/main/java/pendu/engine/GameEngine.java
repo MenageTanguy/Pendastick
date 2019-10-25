@@ -1,12 +1,12 @@
 package pendu.engine;
 
 /**
- * Interface for Game Engine
+ * Interface for Game Engine.
  */
 public interface GameEngine {
 
     /**
-     * MAin method to run engine
+     * MAin method to run engine.
      *
      * @return true if success to find word
      */
@@ -25,7 +25,7 @@ public interface GameEngine {
     void checkLetter(String readCharacter);
 
     /**
-     * Get current state of word
+     * Get current state of word.
      *
      * @return current State of Word
      */
@@ -33,7 +33,7 @@ public interface GameEngine {
 
 
     /**
-     * know if word is find
+     * know if word is find.
      *
      * @return true if find;
      */
