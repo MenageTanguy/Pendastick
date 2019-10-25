@@ -31,16 +31,27 @@ public class Application {
                 askToPlay();
             }
             if (gameRunning) {
+                int nbPlayer = askNbPlayers();
                 WordManager wordManager = askWordDictionnary();
                 EnumDifficulty difficulty = askDifficulty(wordManager);
+                String wordToFind = wordManager.getRandomWordForDifficulty(difficulty);
                 if (difficulty != null) {
-                    Pendu.instance.initGameValues(difficulty, wordManager);
+                    Pendu.instance.initGameValues(difficulty, wordToFind);
                     Pendu.instance.startGame();
                 }
                 gameRunning = false;
             }
         }
 
+    }
+
+    /**
+     * Ask nb of players to user.
+     *
+     * @return nbOfPlayer
+     */
+    private int askNbPlayers() {
+        return KeyboardUtils.readNumber("Choose player number (1-4)", 1, 4);
     }
 
     /**

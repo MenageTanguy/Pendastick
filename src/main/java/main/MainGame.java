@@ -9,6 +9,9 @@ import java.util.Arrays;
  */
 public final class MainGame {
 
+    /**
+     * Private constructor, util class.
+     */
     private MainGame() {
     }
 

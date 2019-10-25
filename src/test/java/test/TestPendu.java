@@ -17,7 +17,7 @@ public class TestPendu extends TestUtils {
     public void testMainGameDifficulty01Internal() {
         System.out.println("testMainGameDifficulty01 --> check if init game have a good and valid word");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY));
 
         // Check word to find
         String wordTofine = Pendu.instance.getWordTofind();
@@ -38,7 +38,7 @@ public class TestPendu extends TestUtils {
     public void testMainGameDifficulty02Internal() {
         System.out.println("testMainGameDifficulty01 --> check if init game have a good and valid word");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM));
 
         // Check word to find
         String wordTofine = Pendu.instance.getWordTofind();
@@ -59,7 +59,7 @@ public class TestPendu extends TestUtils {
     public void testMainGameDifficulty03Internal() {
         System.out.println("testMainGameDifficulty03Internal --> check if init game have a good and valid word");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager.getRandomWordForDifficulty(EnumDifficulty.HARD));
 
         // Check word to find
         String wordTofine = Pendu.instance.getWordTofind();
@@ -80,7 +80,7 @@ public class TestPendu extends TestUtils {
     public void testMainGameDifficulty01External() {
         System.out.println("testMainGameDifficulty01 --> check if init game have a good and valid word");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
-        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY));
 
         // Check word to find
         String wordTofine = Pendu.instance.getWordTofind();
@@ -101,7 +101,7 @@ public class TestPendu extends TestUtils {
     public void testMainGameDifficulty02External() {
         System.out.println("testMainGameDifficulty01 --> check if init game have a good and valid word");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
-        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM));
 
         // Check word to find
         String wordTofine = Pendu.instance.getWordTofind();
@@ -122,7 +122,7 @@ public class TestPendu extends TestUtils {
     public void testMainGameDifficulty03External() {
         System.out.println("testMainGameDifficulty01 --> check if init game have a good and valid word");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(false, PATH_TO_FILE_TEST);
-        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager.getRandomWordForDifficulty(EnumDifficulty.HARD));
 
         // Check word to find
         String wordTofine = Pendu.instance.getWordTofind();
@@ -143,7 +143,7 @@ public class TestPendu extends TestUtils {
     public void testAddLetterAndSuccessWordEasy() {
         System.out.println("testAddLetterAndSuccessWordEasy --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY));
         Pendu.instance.getGameEngine().displayInfo();
 
         // Add 3 possible false letters 'W' 'Z' 'Y'
@@ -168,7 +168,7 @@ public class TestPendu extends TestUtils {
     public void testAddLetterAndSuccessWordMedium() {
         System.out.println("testAddLetterAndSuccessWordMedium --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM));
         Pendu.instance.getGameEngine().displayInfo();
 
         // Add 3 possible false letters 'W' 'Z' 'Y'
@@ -193,7 +193,7 @@ public class TestPendu extends TestUtils {
     public void testAddLetterAndSuccessWordHard() {
         System.out.println("testAddLetterAndSuccessWordHard --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager.getRandomWordForDifficulty(EnumDifficulty.HARD));
         Pendu.instance.getGameEngine().displayInfo();
 
         // Add 3 possible false letters 'W' 'Z' 'Y'
@@ -218,7 +218,7 @@ public class TestPendu extends TestUtils {
     public void testAddLetterAndFailWordEasy() {
         System.out.println("testAddLetterAndFailWordEasy --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.EASY, wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY));
         Pendu.instance.getGameEngine().displayInfo();
 
 
@@ -243,7 +243,7 @@ public class TestPendu extends TestUtils {
     public void testAddLetterAndFailWordMedium() {
         System.out.println("testAddLetterAndFailWordMedium --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.MEDIUM, wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM));
         Pendu.instance.getGameEngine().displayInfo();
 
         // Add 4 possible false letters 'W' 'Z' 'Y' 'X' 'V'
@@ -267,7 +267,7 @@ public class TestPendu extends TestUtils {
     public void testAddLetterAndFailWordHard() {
         System.out.println("testAddLetterAndFailWordHard --> init and add letter");
         WordManager wordManager = WordManagerFactory.getInstance().getWordManager(true, "");
-        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager);
+        Pendu.instance.initGameValues(EnumDifficulty.HARD, wordManager.getRandomWordForDifficulty(EnumDifficulty.HARD));
         Pendu.instance.getGameEngine().displayInfo();
 
         // Add 4 possible false letters 'W' 'Z' 'Y' 'X' 'V'

@@ -3,7 +3,6 @@ package pendu;
 import pendu.engine.EngineGameFactory;
 import pendu.engine.GameEngine;
 import utils.enums.EnumDifficulty;
-import utils.wordmanager.WordManager;
 
 /**
  * Main classe of the project.
@@ -31,7 +30,6 @@ public class Pendu {
      */
     private boolean wordIsFind;
 
-
     /**
      * Private constructor.
      */
@@ -52,11 +50,11 @@ public class Pendu {
     /**
      * init variables and manage each stage.
      *
-     * @param difficulty  difficulty choosen by user
-     * @param wordManager how words are manage
+     * @param difficulty difficulty choosen by user
+     * @param wordTofind Word TO find
      */
-    public void initGameValues(EnumDifficulty difficulty, WordManager wordManager) {
-        wordTofind = wordManager.getRandomWordForDifficulty(difficulty);
+    public void initGameValues(EnumDifficulty difficulty, String wordTofind) {
+        this.wordTofind = wordTofind;
         gameEngine = EngineGameFactory.getInstance().getGameEngine(difficulty, wordTofind);
     }
 
