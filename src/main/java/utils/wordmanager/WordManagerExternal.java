@@ -49,7 +49,6 @@ class WordManagerExternal extends AbstractWordManager {
             }
             // 1 & 2 chars words are ignored
             if (word.length() >= EnumDifficulty.EASY.getMinSize()) {
-                System.out.println("Word to add : " + word);
                 // Add to list 1
                 if (word.length() < EnumDifficulty.MEDIUM.getMinSize()) {
                     wordArrayLevel01.add(word.toUpperCase(Locale.getDefault()));

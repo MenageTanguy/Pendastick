@@ -3,7 +3,7 @@ package pendu.engine;
 import utils.enums.EnumDifficulty;
 
 /**
- * Word manager factory.
+ * Engine game factory.
  */
 public class EngineGameFactory {
 

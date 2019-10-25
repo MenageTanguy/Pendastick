@@ -1,11 +1,19 @@
 package pendu.engine;
 
-import utils.DrawManager;
+import utils.DrawUtils;
 
+/**
+ * Game engine for hard difficulty mode.
+ */
 public class HardGameEngine extends AbstractGameEngine {
 
     private final static int HANG_SIZE = 10;
 
+    /**
+     * Constructor.
+     *
+     * @param wordTofind word to find.
+     */
     HardGameEngine(String wordTofind) {
         super(wordTofind);
     }
@@ -17,6 +25,11 @@ public class HardGameEngine extends AbstractGameEngine {
         nbTry = 0;
     }
 
+    /**
+     * Method to check letter input
+     *
+     * @param readCharacter character input by user
+     */
     public void checkLetter(String readCharacter) {
         // IF letter is in the word
         if (wordTofind.contains(readCharacter)) {
@@ -36,14 +49,17 @@ public class HardGameEngine extends AbstractGameEngine {
         }
     }
 
+    /**
+     * display some texts to informe user.
+     */
     public void displayInfo() {
         System.out.println("\nWord to find : " + currentWordState);
         System.out.println("Try number : " + nbTry + ", fails : " + nbFail);
         if (nbFail > HANG_SIZE) {
-            System.out.println(DrawManager.instance.getDrawForThisLooseNumber(HANG_SIZE));
-            System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail - HANG_SIZE));
+            System.out.println(DrawUtils.getDrawForThisLooseNumber(HANG_SIZE));
+            System.out.println(DrawUtils.getDrawForThisLooseNumber(nbFail - HANG_SIZE));
         } else {
-            System.out.println(DrawManager.instance.getDrawForThisLooseNumber(nbFail));
+            System.out.println(DrawUtils.getDrawForThisLooseNumber(nbFail));
         }
     }
 

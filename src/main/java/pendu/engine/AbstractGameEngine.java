@@ -1,9 +1,12 @@
 package pendu.engine;
 
-import utils.KeyboardManager;
+import utils.KeyboardUtils;
 
 import java.util.Locale;
 
+/**
+ * Abstract class to manage game Engine.
+ */
 public abstract class AbstractGameEngine implements GameEngine {
 
     /**
@@ -68,7 +71,7 @@ public abstract class AbstractGameEngine implements GameEngine {
     private void newUserLetter() {
         nbTry++;
         displayInfo();
-        checkLetter(KeyboardManager.instance.readCharacter("Try a letter please : ").toUpperCase(Locale.getDefault()));
+        checkLetter(KeyboardUtils.readCharacter("Try a letter please : ").toUpperCase(Locale.getDefault()));
     }
 
     /**
@@ -81,15 +84,27 @@ public abstract class AbstractGameEngine implements GameEngine {
         }
     }
 
+    /**
+     * Getter current word state.
+     *
+     * @return current word state.
+     */
     public String getCurrentWordState() {
         return currentWordState;
     }
 
+    /**
+     * Getter is word fine.
+     *
+     * @return isWordfine
+     */
     public boolean isWordIsFind() {
         return wordIsFind;
     }
 
-
+    /**
+     * Abstract method to init engine.
+     */
     protected abstract void init();
 
 }
