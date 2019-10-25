@@ -5,6 +5,9 @@ import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 import utils.wordmanager.WordManagerFactory;
 
+/**
+ * Core engine of the game.
+ */
 public class Application {
 
     /**
@@ -26,6 +29,9 @@ public class Application {
      */
     private String[] playersName;
 
+    /**
+     * Constructor of app and set variables.
+     */
     public Application() {
         this.continueGame = true;
         this.gameRunning = false;
