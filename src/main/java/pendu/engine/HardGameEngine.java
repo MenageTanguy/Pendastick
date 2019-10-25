@@ -26,7 +26,7 @@ public class HardGameEngine extends AbstractGameEngine {
     }
 
     /**
-     * Method to check letter input
+     * Method to check letter input.
      *
      * @param readCharacter character input by user
      */

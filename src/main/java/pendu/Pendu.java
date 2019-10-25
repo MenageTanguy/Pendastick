@@ -77,7 +77,7 @@ public class Pendu {
     }
 
     /**
-     * Return game engine
+     * Return game engine.
      *
      * @return game engine used
      */
