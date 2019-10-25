@@ -4,6 +4,8 @@ import org.junit.Assert;
 import utils.enums.EnumDifficulty;
 import utils.wordmanager.WordManager;
 
+import java.util.ArrayList;
+
 abstract class TestUtils {
 
     /**
@@ -35,15 +37,18 @@ abstract class TestUtils {
         // Difficulty 01
         System.out.println("testPenduRandomWordInternal, check if word is random word is contain in the good list");
         System.out.println("Test difficulty 1 list..");
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel01().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY)));
+        ArrayList<String> listToCheck = new ArrayList<>(wordManager.getWordArrayLevel01());
+        Assert.assertTrue("This word is not contain in the list !", listToCheck.contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY)));
+        Assert.assertTrue("This word is not contain in the list !", listToCheck.contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY)));
+        Assert.assertTrue("This word is not contain in the list !", listToCheck.contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.EASY)));
         System.out.println(".. OK");
         System.out.println("Test difficulty 2 list..");
         // Difficulty 02
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM)));
-        Assert.assertTrue("This word is not contain in the list !", wordManager.getWordArrayLevel02().contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM)));
+        listToCheck.clear();
+        listToCheck.addAll(wordManager.getWordArrayLevel02());
+        Assert.assertTrue("This word is not contain in the list !", listToCheck.contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM)));
+        Assert.assertTrue("This word is not contain in the list !", listToCheck.contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM)));
+        Assert.assertTrue("This word is not contain in the list !", listToCheck.contains(wordManager.getRandomWordForDifficulty(EnumDifficulty.MEDIUM)));
         System.out.println(".. OK");
     }
 

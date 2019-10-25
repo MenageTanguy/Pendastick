@@ -55,16 +55,21 @@ public class Application {
                     boolean gameOver = false;
                     initPlayersList(nbPlayer);
                     while (!gameOver) {
-                        System.out.println("Time to find a new word ! Good luck.");
                         String wordToFind = wordManager.getRandomWordForDifficulty(difficulty);
-                        for (int i = 0; i < nbPlayer; i++) {
-                            if (playersCanPlay[i]) {
-                                System.out.println("Let's go player " + playersName[i]);
-                                Pendu.instance.initGameValues(difficulty, wordToFind);
-                                playersCanPlay[i] = Pendu.instance.startGame();
+                        if (wordToFind.matches("")) {
+                            System.out.println("Dictionnary is empty ! Please choose a new one");
+                            wordManager = askWordDictionnary();
+                        } else {
+                            System.out.println("Time to find a new word ! Good luck.");
+                            for (int i = 0; i < nbPlayer; i++) {
+                                if (playersCanPlay[i]) {
+                                    System.out.println("Let's go player " + playersName[i]);
+                                    Pendu.instance.initGameValues(difficulty, wordToFind);
+                                    playersCanPlay[i] = Pendu.instance.startGame();
+                                }
                             }
+                            gameOver = checkStatePlayers(nbPlayer);
                         }
-                        gameOver = checkStatePlayers(nbPlayer);
                     }
                 }
                 gameRunning = false;

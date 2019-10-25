@@ -30,20 +30,33 @@ public abstract class AbstractWordManager implements WordManager {
      */
     public String getRandomWordForDifficulty(EnumDifficulty difficulty) {
         Random rand = new Random();
-        String upperCaseWordToRet;
+        String upperCaseWordToRet = "";
         switch (difficulty) {
             case EASY:
-                upperCaseWordToRet = wordArrayLevel01.get(rand.nextInt(wordArrayLevel01.size()));
+                if (!wordArrayLevel01.isEmpty()) {
+                    upperCaseWordToRet = wordArrayLevel01.get(rand.nextInt(wordArrayLevel01.size()));
+                    wordArrayLevel01.remove(upperCaseWordToRet);
+                }
                 break;
             case MEDIUM:
-                upperCaseWordToRet = wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
+                if (!wordArrayLevel02.isEmpty()) {
+                    upperCaseWordToRet = wordArrayLevel02.get(rand.nextInt(wordArrayLevel02.size()));
+                    wordArrayLevel02.remove(upperCaseWordToRet);
+                }
                 break;
             case HARD:
             default:
                 List<String> list = new ArrayList();
                 list.addAll(wordArrayLevel01);
                 list.addAll(wordArrayLevel02);
-                upperCaseWordToRet = list.get(rand.nextInt(list.size()));
+                if (!list.isEmpty()) {
+                    upperCaseWordToRet = list.get(rand.nextInt(list.size()));
+                    if (upperCaseWordToRet.length() < EnumDifficulty.MEDIUM.getMinSize()) {
+                        wordArrayLevel01.remove(upperCaseWordToRet);
+                    } else {
+                        wordArrayLevel02.remove(upperCaseWordToRet);
+                    }
+                }
                 break;
         }
         return upperCaseWordToRet.toUpperCase(Locale.getDefault());
