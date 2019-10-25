@@ -107,4 +107,39 @@ public abstract class AbstractGameEngine implements GameEngine {
      */
     protected abstract void init();
 
+    /**
+     * get wordTofind.
+     *
+     * @return wordTofind
+     */
+    public String getWordTofind() {
+        return wordTofind;
+    }
+
+    /**
+     * get getNbTry.
+     *
+     * @return nbTry
+     */
+    public int getNbTry() {
+        return nbTry;
+    }
+
+    /**
+     * get getNbFail.
+     *
+     * @return nbFail
+     */
+    public int getNbFail() {
+        return nbFail;
+    }
+
+    /**
+     * get getNbFailAuthorized.
+     *
+     * @return nbFailAuthorized
+     */
+    public int getNbFailAuthorized() {
+        return nbFailAuthorized;
+    }
 }
