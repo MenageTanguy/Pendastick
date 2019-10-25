@@ -26,7 +26,7 @@ public final class KeyboardUtils {
     /**
      * Scanner used to read console input
      */
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     /**
      * Private constructor
@@ -60,7 +60,7 @@ public final class KeyboardUtils {
         String value;
         while (true) {
             System.out.println(message);
-            value = scanner.nextLine().trim();
+            value = SCANNER.nextLine().trim();
             if (!value.isEmpty()) {
                 return value;
             }
@@ -122,7 +122,7 @@ public final class KeyboardUtils {
     public static int readNumber(String message, int min, int max) {
         int value;
         System.out.println(message);
-        String input = scanner.nextLine().trim();
+        String input = SCANNER.nextLine().trim();
         if (isInteger(input)) {
             value = Integer.parseInt(input);
             if (value >= min && value <= max) {
