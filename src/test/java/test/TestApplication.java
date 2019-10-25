@@ -28,9 +28,9 @@ public class TestApplication extends TestUtils {
     public void testApplicationAndKeyboard() {
         enter("a\nb\ntest\ni\n1\nj\n \no\n" + "5\n5\n2\ni\n1\n"
                 + PATH_TO_FILE_TEST + "\ngdihoshodè''è.fiid\n" + PATH_TO_FILE_TEST + "\n"
-                + "Y\n1\nN\n1\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nN\n"
-                + "Y\n2\n" + PATH_ONE_WORD + "\nN\n1\np\na\nr\nN\n"
-                + "Y\n2\n" + PATH_ONE_WORD + "\nH\np\na\nr\nN\n");
+                + "Y\n1\ntestPlayer\n1\nN\n1\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nz\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nw\nN\n"
+                + "Y\n1\ntestPlayer\n2\n" + PATH_ONE_WORD + "\nN\n1\np\na\nr\nN\n"
+                + "Y\n1\ntestPlayer\n2\n" + PATH_ONE_WORD + "\nH\np\na\nr\nN\n");
         System.out.println("Test readCharacter");
         Assert.assertEquals("a", KeyboardUtils.readCharacter("test keyboard a"));
         Assert.assertEquals("b", KeyboardUtils.readCharacter("test keyboard b"));

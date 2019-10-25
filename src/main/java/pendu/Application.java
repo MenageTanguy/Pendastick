@@ -8,13 +8,23 @@ import utils.wordmanager.WordManagerFactory;
 public class Application {
 
     /**
-     * State of game (is a game running ? )
+     * State of game (is a game running ?).
      */
     private boolean gameRunning;
     /**
      * State of program, if false, program terminates.
      */
     private boolean continueGame;
+
+    /**
+     * List of state game of all players.
+     */
+    private Boolean[] playersCanPlay;
+
+    /**
+     * List of all players name.
+     */
+    private String[] playersName;
 
     public Application() {
         this.continueGame = true;
@@ -32,12 +42,24 @@ public class Application {
             }
             if (gameRunning) {
                 int nbPlayer = askNbPlayers();
+                generatePlayersName(nbPlayer);
                 WordManager wordManager = askWordDictionnary();
                 EnumDifficulty difficulty = askDifficulty(wordManager);
-                String wordToFind = wordManager.getRandomWordForDifficulty(difficulty);
                 if (difficulty != null) {
-                    Pendu.instance.initGameValues(difficulty, wordToFind);
-                    Pendu.instance.startGame();
+                    boolean gameOver = false;
+                    initPlayersList(nbPlayer);
+                    while (!gameOver) {
+                        System.out.println("Time to find a new word ! Good luck.");
+                        String wordToFind = wordManager.getRandomWordForDifficulty(difficulty);
+                        for (int i = 0; i < nbPlayer; i++) {
+                            if (playersCanPlay[i]) {
+                                System.out.println("Let's go player " + playersName[i]);
+                                Pendu.instance.initGameValues(difficulty, wordToFind);
+                                playersCanPlay[i] = Pendu.instance.startGame();
+                            }
+                        }
+                        gameOver = checkStatePlayers(nbPlayer);
+                    }
                 }
                 gameRunning = false;
             }
@@ -46,12 +68,63 @@ public class Application {
     }
 
     /**
+     * Keyboard input to generate all players name.
+     *
+     * @param nbPlayer nb of player
+     */
+    private void generatePlayersName(int nbPlayer) {
+        playersName = new String[nbPlayer];
+        for (int i = 0; i < nbPlayer; i++) {
+            playersName[i] = KeyboardUtils.readString("Please enter name for player " + (i + 1));
+        }
+    }
+
+    /**
+     * Check state of players.
+     *
+     * @param nbPlayer nb of players
+     * @return true if all players looses or if only one player remain.
+     */
+    private boolean checkStatePlayers(int nbPlayer) {
+        int lastPlayerRemain = -1;
+        int countPlayers = 0;
+        boolean result = false;
+        for (int i = 0; i < nbPlayer; i++) {
+            if (playersCanPlay[i]) {
+                lastPlayerRemain = i;
+            } else {
+                countPlayers++;
+            }
+        }
+        if (countPlayers == nbPlayer) {
+            System.out.println("No one won ! Try again");
+            result = true;
+        } else if (countPlayers == nbPlayer - 1) {
+            System.out.println(playersName[lastPlayerRemain] + " win ! Congratulations");
+            result = true;
+        }
+        return result;
+    }
+
+    /**
+     * Init players state list.
+     *
+     * @param nbPlayer nb of player
+     */
+    private void initPlayersList(int nbPlayer) {
+        playersCanPlay = new Boolean[nbPlayer];
+        for (int i = 0; i < nbPlayer; i++) {
+            playersCanPlay[i] = true;
+        }
+    }
+
+    /**
      * Ask nb of players to user.
      *
      * @return nbOfPlayer
      */
     private int askNbPlayers() {
-        return KeyboardUtils.readNumber("Choose player number (1-4)", 1, 4);
+        return KeyboardUtils.readNumber("Choose player number (1-6)", 1, 6);
     }
 
     /**

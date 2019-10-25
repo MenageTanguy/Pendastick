@@ -56,7 +56,7 @@ public final class KeyboardUtils {
      * @param message message to display
      * @return string read
      */
-    private static String readString(String message) {
+    public static String readString(String message) {
         String value;
         while (true) {
             System.out.println(message);
