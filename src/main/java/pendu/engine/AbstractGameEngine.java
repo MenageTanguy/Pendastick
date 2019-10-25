@@ -17,32 +17,32 @@ public abstract class AbstractGameEngine implements GameEngine {
     /**
      * Word to find.
      */
-    protected String wordTofind;
+    protected transient String wordTofind;
 
     /**
      * Current word display.
      */
-    protected String currentWordState;
+    protected transient String currentWordState;
 
     /**
      * Current nb of try.
      */
-    protected int nbTry;
+    protected transient int nbTry;
 
     /**
      * Current nb of fails.
      */
-    protected int nbFail;
+    protected transient int nbFail;
 
     /**
      * If word is find = true.
      */
-    protected boolean wordIsFind;
+    protected transient boolean wordIsFind;
 
     /**
      * nb Fail authorized before lose.
      */
-    protected int nbFailAuthorized;
+    protected transient int nbFailAuthorized;
 
     AbstractGameEngine(String wordTofind) {
         this.wordTofind = wordTofind;
